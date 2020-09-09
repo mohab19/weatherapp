@@ -1,0 +1,44 @@
+@media(max-width:767px) /* xs small*/
+{
+.videos img{margin-bottom:25px;
+height:300px}
+.weather-table{flex-wrap:wrap;}
+.weather-info{width:33.3% !important}
+.current{width:100% !important}
+.main li{margin-top: 0px !important;}
+.cities{    margin-top: 40px;}
+.feature{display: none;}
+.climate-left .media{display:flex;
+flex-direction: column;}
+.climate-left h5{margin-top: 10% !important; }
+.footer-nav{display: none;}
+.nav-item{text-align: center;
+border-bottom: 1px solid #323544;}
+.navbar-brand{margin-left: 5px;}
+}
+@media(min-width:768px) and (max-width:991px) /*small*/
+{
+.location input{width:90%!important}
+.videos img{margin-bottom:25px;}
+.video-part h3{font-size:1.1rem;}
+.video-part p{font-size:14px}
+.weather-table{flex-wrap:wrap;}
+.weather-info{width:33.3% !important}
+.current{width:100% !important}
+.main ul:nth-child(2){margin-left: 0px;}
+.main li{margin-top: 0px !important;} 
+.feature{display: none;}
+
+}
+
+
+@media(min-width:1001px) and (max-width:1199px) {/*medium*/
+
+}
+
+@media(min-width:1200px) /*large*/
+{
+
+}
+
+
