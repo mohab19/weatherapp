@@ -2,8 +2,12 @@
 {
 .videos img{margin-bottom:25px;
 height:300px}
-.weather-table{flex-wrap:wrap;}
-.weather-info{width:33.3% !important}
+.weather-info{width:25% !important;
+height:150px;}
+.weather-table{width:80%;
+ margin: auto;   
+flex-wrap: wrap;}
+.weather-table h4{font-size: 14px;}
 .current{width:100% !important}
 .main li{margin-top: 0px !important;}
 .cities{    margin-top: 40px;}
@@ -15,6 +19,7 @@ flex-direction: column;}
 .nav-item{text-align: center;
 border-bottom: 1px solid #323544;}
 .navbar-brand{margin-left: 5px;}
+.footer-nav-white{background-color: #fff;}
 }
 @media(min-width:768px) and (max-width:991px) /*small*/
 {
@@ -22,13 +27,17 @@ border-bottom: 1px solid #323544;}
 .videos img{margin-bottom:25px;}
 .video-part h3{font-size:1.1rem;}
 .video-part p{font-size:14px}
-.weather-table{flex-wrap:wrap;}
-.weather-info{width:33.3% !important}
+.weather-table{width:80%;
+margin:auto ;    
+flex-wrap: wrap;}
+.weather-table h4{font-size: 14px;}
+.weather-info{width:25% !important;
+height:150px;}
 .current{width:100% !important}
 .main ul:nth-child(2){margin-left: 0px;}
 .main li{margin-top: 0px !important;} 
 .feature{display: none;}
-
+.footer-nav-white{background-color: #fff;}
 }
 
 

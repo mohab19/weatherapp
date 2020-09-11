@@ -1,0 +1,16 @@
+body{direction: rtl;
+ text-align: right;}
+ .main p {font-size: medium;}
+ .climate-right .media-body p{font-size: 14px;}
+/*location*/
+.box h2{margin-right: 15px;} 
+/*climate*/
+ .weather-table .current p{text-align: right}
+ .current .city, .current h1,.current span{margin-right: 10px;   }  
+ /*main*/
+ .main ul:nth-child(2){margin-right: 10px;}
+ /*footer*/
+ footer .nav-link:after {margin-right: 20px;}
+ .second-footer{direction: ltr;}
+ /*news*/
+ .news-box .lead{margin-right: 20px;}

@@ -15,12 +15,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media.css.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/javascript-calendar.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap">
+    @stack('styles')
 </head>
 <body>
     <!-- nav bar section -->
@@ -92,10 +92,54 @@
     <script src="{{ asset('js/api.js') }}"></script>
     <script src="{{ asset('js/javascript-calendar.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
+    @stack('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            var token     = $('meta[name="csrf-token"]').attr('content');
             new WOW().init();
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showLocation);
+            } else {
+                $('#location').html('Geolocation is not supported by this browser.');
+            }
+            $("#add-location").on("click", function() {
+                var city = $("#city_name").val();
+                $.ajax({
+                    type:'GET',
+                    url:'{{url("/choose_location")}}/'+city,
+                    success:function(response){
+                        if(response) {
+                            $("#climate").html('');
+                            $("#climate").html(response["view"]);
+                        } else {
+                            $("#location").html('No data for this city !');
+                        }
+                    }
+                });
+            });
         });
+
+        function showLocation(position){
+            var latitude  = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            $.ajax({
+                type:'POST',
+                url:'{{url("/get_location")}}',
+                data: {
+                    _token: token,
+                    latitude : latitude,
+                    longitude: longitude
+                },
+                success:function($response){
+                    if($response) {
+                       $("#location").html($response);
+                    } else {
+                        $("#location").html('Not Available !');
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>

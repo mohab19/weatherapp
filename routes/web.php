@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/get_location', 'HomeController@getLocation');
+Route::get('/climate', 'ClimateController@index');
+Route::get('/news', 'NewsController@index');
+Route::get('/radar', 'RadarController@index');
 
 Auth::routes();

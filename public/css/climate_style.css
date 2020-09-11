@@ -47,6 +47,7 @@ footer .nav-link:after{content:"|";
 margin-left: 20px;
 color:#555555}
 footer .nav-link:last-child:after{content: none;}
+footer .nav-link{padding: .5rem .5rem;}
 .second-footer{padding: 40px 0px;
     background-color: #F8F8F8;}
     .second-footer p{margin-bottom: 0.5px;}

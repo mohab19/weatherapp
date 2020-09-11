@@ -12,19 +12,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Forecast <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{url('/')}}">@lang('home.home')<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="climate.html">Climate change</a>
+                    <a class="nav-link" href="{{url('/climate')}}">@lang('home.climate')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="news.html">News</a>
+                    <a class="nav-link" href="{{url('/news')}}">@lang('home.news')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="radar.html">Radar</a>
+                    <a class="nav-link" href="{{url('/radar')}}">@lang('home.radar')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="{{url('/login')}}">@lang('home.login')</a>
                 </li>
             </ul>
         </div>

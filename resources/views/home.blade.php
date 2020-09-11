@@ -1,22 +1,25 @@
 @extends('layouts.app')
-
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
+@endpush
 @section('content')
 <!--start location-->
 <div class="location">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <div class="search-part">
-                    <input type="search" placeholder="city name" id="cityInp">
-                </div>
+            <div class="col-sm-11">
+                <select class="form-control" name="city_name" id="city_name" style="background: #1e202b;border: 1px solid #1e202b;color: #fff;">
+                    @foreach($cities as $key => $city)
+                    <option value="{{$city->name_en}}">{{$city->name_en}}</option>
+                    @endforeach
+                </select>
             </div>
-            <div class="col-md-6  col-sm-12">
-                <div class="location">
-                    <div class="box">
-                        <span><i class="fas fa-plus"></i></span>
-                        <h2>Add location</h2>
-                    </div>
-                </div>
+            <div class="col-sm-1">
+                <span id="add-location" style="cursor: pointer;"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="col-sm-12">
+                <p>Your Location: <span id="location"></span></p>
+            </div>
             </div>
         </div>
     </div>
@@ -24,30 +27,8 @@
 <!--end location-->
 
 <!--start climate-->
-<section class="climate">
-    <div class="overlay">
-        <div class="container">
-            <div class="weather-table">
-                @foreach($forcasting["forcast"] as $key => $day)
-                    @if($key < 5)
-                        <div class="weather-info text-center @if($key==0) current @endif" style="color: white;">
-                            <div class="">
-                                <p class="day day2 text-center">{{$day["date_name"]}}</p>
-                                <span class="city text-center">{{$day["date"]}}</span>
-                                <p class="text-center">{{$day["weather"]}}</p>
-                                <h5 class="d1">{{intval($day["max_temp"])}}<span class="degree">&#8451;</span></h5>
-                                <img src="{{$day['icon']}}" alt="">
-                                <h5 class="d1">{{intval($day["min_temp"])}}<span class="degree">&#8451;</span></h5>
-                            </div>
-                            <br>
-                            <div class="avg-temp"></div>
-                        </div>
-                    @endif
-                @endforeach
-
-            </div>
-        </div>
-    </div>
+<section class="climate" id="climate">
+@include('climate', ['forcasting' => $forcasting])
 </section>
 <!--end climate-->
 

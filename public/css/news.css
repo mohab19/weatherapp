@@ -34,7 +34,7 @@
     .location input{width: 80%;
         color: #fff;
         height: 51px;
-        padding: 15px 0px 15px 20px;
+        padding: 15px 20px 15px 20px;
         background: #1e202b;
         box-shadow: none;
         outline: none;
@@ -93,7 +93,8 @@ footer{background-color: #fff;}
 .footer-nav{padding:60px 0px;}
 footer .nav{    border: 1px solid #dbdbdb;
     padding: 50px 40px}
-footer .nav a{color:#009AD8}    
+footer .nav a{color:#009AD8} 
+footer .nav-link{padding: .5rem .5rem;}   
 footer .nav-link:after{content:"|";
 margin-left: 20px;
 color:#555555}

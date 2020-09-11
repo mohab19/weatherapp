@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
 
 class HomeController extends Controller
 {
@@ -21,12 +22,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($city = 'Riyadh')
     {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        	CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/forecast?q=cairo,eg&units=metric&mode=json&lang=ar&cnt=5",
+        	CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/forecast?q=".$city.",sa&units=metric&mode=json&lang=ar&cnt=5",
         	CURLOPT_RETURNTRANSFER => true,
         	CURLOPT_FOLLOWLOCATION => true,
         	CURLOPT_ENCODING => "",
@@ -69,7 +70,39 @@ class HomeController extends Controller
                     break;
                 }
             }
+
         }
-        return view('home', compact('forcasting'));
+        if(request()->ajax()) {
+            $view = view('climate', ['forcasting' => $forcasting])->render();
+            return \Response::json(['status' => 200, 'view' => $view]);
+        }
+        $cities = City::all();
+        return view('home', compact('forcasting', 'cities'));
+    }
+
+    public function getLocation(Request $request)
+    {
+        if(!empty($request->latitude) && !empty($request->longitude)) {
+            //send request and receive json data by latitude and longitude
+            $url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDI2SNijuvKmsjq3b9iVyQuuKppfqOenLQ&latlng='.trim($request->latitude).','.trim($request->longitude).'&sensor=false';
+            $json = @file_get_contents($url);
+            $data = json_decode($json);
+            $status = $data->status;
+            //if request status is successful
+            if($status == "OK") {
+                //get address from json data
+                $location = $data->results[0]->formatted_address;
+            } else {
+                $location =  '';
+            }
+
+            //return address to ajax
+            return $location;
+        }
+    }
+
+    public function chooseLocation(Request $request)
+    {
+
     }
 }
