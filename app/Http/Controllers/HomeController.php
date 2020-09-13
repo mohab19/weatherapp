@@ -22,12 +22,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($city = 'Riyadh')
+    public function index($lang, $city = 'Riyadh')
     {
         $curl = curl_init();
-
+        $lang = \Lang::locale();
         curl_setopt_array($curl, array(
-        	CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/forecast?q=".$city.",sa&units=metric&mode=json&lang=ar&cnt=5",
+        	CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/forecast?q=".$city.",sa&units=metric&mode=json&lang=".$lang."&cnt=5",
         	CURLOPT_RETURNTRANSFER => true,
         	CURLOPT_FOLLOWLOCATION => true,
         	CURLOPT_ENCODING => "",
@@ -80,7 +80,7 @@ class HomeController extends Controller
         return view('home', compact('forcasting', 'cities'));
     }
 
-    public function getLocation(Request $request)
+    public function getLocation($lang, Request $request)
     {
         if(!empty($request->latitude) && !empty($request->longitude)) {
             //send request and receive json data by latitude and longitude
@@ -101,8 +101,16 @@ class HomeController extends Controller
         }
     }
 
-    public function chooseLocation(Request $request)
+    public function chooseLocation($lang, Request $request)
     {
 
+    }
+
+    public function searchCity($city)
+    {
+        $result = City::where('name_ar', 'like', '%'.$city.'%')->
+                        orWhere('name_en', 'like', '%'.$city.'%')->
+                        get();
+        return $result;
     }
 }

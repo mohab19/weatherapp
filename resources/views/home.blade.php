@@ -1,163 +1,299 @@
 @extends('layouts.app')
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
+    @if(app()->getLocale() == 'ar')
+    <link rel="stylesheet" href="{{ asset('css/styleAr.css') }}">
+    @endif
+    <style media="screen">
+        .search-result {
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .search-result:hover {
+            background: blue;
+            color: white;
+        }
+    </style>
 @endpush
 @section('content')
-<!--start location-->
-<div class="location">
+<!--weather table-->
+<div class="weather-table">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-11">
-                <select class="form-control" name="city_name" id="city_name" style="background: #1e202b;border: 1px solid #1e202b;color: #fff;">
-                    @foreach($cities as $key => $city)
-                    <option value="{{$city->name_en}}">{{$city->name_en}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-sm-1">
-                <span id="add-location" style="cursor: pointer;"><i class="fas fa-plus"></i></span>
-            </div>
-            <div class="col-sm-12">
-                <p>Your Location: <span id="location"></span></p>
-            </div>
-            </div>
+        <div class="search-box d-flex align-items-center">
+            <img class="search-box-flag img-circle" src="https://assets.devops.arabiaweather.com/images/flags/svg/1x1/sa.svg" width="26" height="26">
+            <input type="text" class="form-control text-center" id="search" placeholder="@lang('home.search')" autocomplete="off">
+            <i class="fas fa-search" id="add-location" style="cursor: pointer;"></i>
+        </div>
+        <div class="p-3" style="width: 100%;background: #fff;z-index: 9;position: relative;top: -19px;border: 1px solid #b9b7b7;display: none;" id="search-result">
+            <ul style="list-style: none;">
+
+            </ul>
+        </div>
+        <!-- forcasting section -->
+        <div class="row" id="climate">
+            @include('climate', ['forcasting' => $forcasting])
+        </div>
+        <!-- forcasting section -->
+    </div>
+</div>
+<!-- end main -->
+
+<!-- text div -->
+<div class="text-forecast">
+    <div class="container d-flex">
+        <div class="text-forecast-label">
+            <span><i class="aw-info"></i> Text Summary</span>
+        </div>
+        <div class="text-forecast-content">
+            The weather today is expected to be mostly clear and the maximum temperature will be 37°C which is similar to yesterday. The weather tonight is expected to be foggy and the minimum temperature will be 24°C which is colder by 3°C than last night.&nbsp;
         </div>
     </div>
 </div>
-<!--end location-->
+<!-- text div -->
 
-<!--start climate-->
-<section class="climate" id="climate">
-@include('climate', ['forcasting' => $forcasting])
-</section>
-<!--end climate-->
-
-<!--start videos section-->
-<div class="videos">
+<!--stalite map-->
+<div class="satellite">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-12">
-                <div class="video-part">
-                    <h3>Weather Forecast pictures</h3>
-                    <p>Climate Changes Make Some Aspects of Weather Forecasting Increasingly Difficult</p>
+            <div class="col-md-9">
+                 <div class="sat-map">
+                    <h3><i class="fas fa-satellite-dish mx-2"></i>satellite</h3>
+                    <a href='#' target='sat24'><image src='img/sat.jpg' width=100% height=291></a>
+                    <a href="#" class="maps">More Maps <i class="fas fa-angle-double-right"></i></a>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <img src="{{ asset('images/weather1.jpg') }}" class="weather-pic" alt="img-fluid">
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <img src="{{ asset('images/weather2.jpg') }}" alt="weather-pic" class="img-fluid">
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <img src="{{ asset('images/weather3.jpg') }}" alt="weather-pic" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</div>
-<!--end videos section -->
-
-<!--start map-->
-<div class="map">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="calendar">
-                    <div id="jquery-script-menu">
-                        <div class="jquery-script-center">
-                            <div class="jquery-script-ads"></div>
-                            <div class="jquery-script-clear"></div>
-                        </div>
+                <div class="weather-news">
+                    <h3> <i class="fas fa-cloud-sun mx-2"></i>weather news</h3>
+                    <div class="news-box d-flex">
+                        <image src='img/news.jpg' width=60% height=291>
+                        <p>lorem ipsum </p>
+                        <a href="#" class="details">Details <i class="fas fa-angle-double-right"></i></a>
+                        <i class="fas fa-share-alt"></i>
                     </div>
-                    <div class="container">
-                        <div class="icalendar">
-                            <div class="icalendar__month">
-                                <div class="icalendar__prev" onclick="moveDate('prev')">
-                                    <span> &10094 </span>
-                                </div>
-                                <div class="icalendar__current-date">
-                                    <h2 id="icalendarMonth"></h2>
-                                    <div>
-                                        <div id="icalendarDateStr"></div>
+                </div>
+                <div class="news-carousel">
+                    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="d-flex np">
+                                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                                    <span class="fas fa-chevron-left" aria-hidden="true"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                                    <span class="fas fa-chevron-right" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                            <div class="carousel-item active" data-interval="10000">
+                                <div class="news-carousel-inner d-flex">
+                                    <div class="card">
+                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        </div>
                                     </div>
-
-                                </div>
-                                <div class="icalendar__next" onclick="moveDate('next')">
-                                    <span>&10095</span>
+                                    <div class="card">
+                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="icalendar__week-days">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
+                            <div class="carousel-item" data-interval="2000">
+                                <div class="news-carousel-inner d-flex">
+                                    <div class="card">
+                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="icalendar__days"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-carousel news-carousel-small">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card">
+                                    <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card" >
+                                    <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="myMap">
-                    <img src="images/map1.png" alt="world-map" class="img-fluid">
+            <div class="col-md-3">
+                <div class="adv">
+                    <p class="text-muted">advertisement</p>
+                    <div class="story">
+                        <p class="d-flex">
+                            <span>stories</span>
+                            <svg style="width:26px;position:relative;top:-6px;float:right;margin-left:5px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" xml:space="preserve">
+                                <g>
+                                    <path d="M13,3c-5,0-9,4-9,9H1l3.9,3.9L5,16l4-4H6c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7c-1.9,0-3.7-0.8-4.9-2.1l-1.4,1.4,C8.3,20,10.5,21,13,21c5,0,9-4,9-9S18,3,13,3z"></path>
+                                    <polygon points="12,8 12,13 16.3,15.5 17,14.3 13.5,12.2 13.5,8"></polygon>
+                                </g>
+                            </svg>
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><img src="img/pic1.jpg" class=" img-rounded" alt="weather pic"> <p>video nd photo after</p></a></li>
+                            <li><a href="#"><img src="img/pic1.jpg" class=" img-rounded" alt="weather pic"> <p>video nd photo after</p></a></li>
+                            <li><a href="#"><img src="img/pic1.jpg" class=" img-rounded" alt="weather pic"> <p>video nd photo after</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="map">
+                    <p>weather map</p>
+                    <img class="img-responsive" width="100%" alt="Weather Map" src="https://assets.devops.arabiaweather.com/images/weather-map-card.svg">
+                    <iframe width="100%" height="250" src="https://embed.windy.com/embed2.html?lat=30.078&lon=31.285&detailLat=30.078&detailLon=31.285&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--end map-->
+<!--stalite map-->
 
-<!--start main-->
-<div class="main ">
+<!--arabia carousel-->
+<div class="arabia-carousel mb-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-6">
-                <div class="weather-card wow slideInLeft" data-wow-duration="2s" data-wow-delay="3s">
-                    <div class="card">
-                        <img src="images/weatherpic.jpg" class="card-img-top img-fluid" alt="weather">
-                        <div class="card-body">
-                            <h5 class="card-title">Weather in picture</h5>
-                            <hr>
-                            <p>Weather is the day-to-day or hour-to-hour change in the atmosphere. Weather includes wind, lightning, storms,
-                            hurricanes, tornadoes, rain, hail, snow, and lots more. Energy from the Sun affects the weather.</p>
-                            <a href="#">read more</a>
+        <div id="carouselExampleInterval2" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <h3><i class="fas fa-newspaper mx-2"></i>Weather friends articles</h3>
+                <div class="d-flex np">
+                    <a class="carousel-control-prev" href="#carouselExampleInterval2" role="button" data-slide="prev">
+                        <span class="fas fa-chevron-left" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleInterval2" role="button" data-slide="next">
+                        <span class="fas fa-chevron-right" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="carousel-item active" data-interval="10000">
+                    <div class="arabia-carousel-inner d-flex">
+                        <div class="card">
+                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 offset-lg-1 col-md-6">
-                <div class="cities wow slideInDown" data-wow-duration="2s" data-wow-delay="3.5s">
-                    <h5>TOP 10 CITY WEATHER FORECASTS</h5>
-                    <div class="list-city">
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-chevron-right"></i> <b>PARIS</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>NEW YORK</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>LONDON</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>MOSCOW</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>ROME</b></li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-chevron-right"></i> <b>DUBAI</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>MADRID</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>BERLIN</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>MUMBAI</b></li>
-                            <li><i class="fas fa-chevron-right"></i> <b>THENSE</b></li>
-                        </ul>
+                <div class="carousel-item" data-interval="2000">
+                    <div class="arabia-carousel-inner d-flex">
+                        <div class="card">
+                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <p>Weather happens because different parts of the Earth get different amounts of heat from the Sun.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 feat">
-                <div class="feature wow slideInRight" data-wow-duration="2s" data-wow-delay="3s">
-                    <img src="images/feature.jpg" alt="nature" class="img-fluid">
-                    <h5>Features & Analysis</h5>
-                    <p>Weather Analysis and Forecasting is a practical guide to using potential vorticity fields</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--end main-->
+<!--arabia carousel-->
 @endsection
