@@ -1,9 +1,5 @@
 @extends('layouts.app')
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
-    @if(app()->getLocale() == 'ar')
-    <link rel="stylesheet" href="{{ asset('css/styleAr.css') }}">
-    @endif
     <style media="screen">
         .search-result {
             padding: 5px 10px;
@@ -57,12 +53,12 @@
         <div class="row">
             <div class="col-md-9">
                  <div class="sat-map">
-                    <h3><i class="fas fa-satellite-dish mx-2"></i>satellite</h3>
+                    <h3><i class="fas fa-satellite-dish mx-2"></i>@lang('home.satellite')</h3>
                     <a href='#' target='sat24'><image src='img/sat.jpg' width=100% height=291></a>
                     <a href="#" class="maps">More Maps <i class="fas fa-angle-double-right"></i></a>
                 </div>
                 <div class="weather-news">
-                    <h3> <i class="fas fa-cloud-sun mx-2"></i>weather news</h3>
+                    <h3> <i class="fas fa-cloud-sun mx-2"></i>@lang('home.news')</h3>
                     <div class="news-box d-flex">
                         <image src='img/news.jpg' width=60% height=291>
                         <p>lorem ipsum </p>

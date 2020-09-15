@@ -1,48 +1,99 @@
 @media(max-width:767px) /* xs small*/
 {
-.weather-card{display:none}
-.current-day{display:block}
+#climate .col-md{display:none;}
 .logo .fas{display: inline-block;
-           color:#fff;
-           cursor: pointer;}
+color:#fff;
+cursor: pointer;}
 header{    padding: 15px 0px;}
-.logo img{width:20% !important}
-nav{display: none !important;}
+
+
+.navbar{display: none !important;}
+
 nav.small{display: block !important;}
+
+
 .news-carousel,.arabia-carousel,.posts-carousel{display: none;}
+
 .news-carousel-small,.arabia-carousel-small,.posts-carousel-small{display: block;
 padding:30px 0px;
-width:90%;
+width:100%;
 margin: auto;}
+
 .news-carousel-small .card,.arabia-carousel-small .card,.posts-carousel-small .card{width: 100%;
 margin: 0px;}
+
 .carousel-indicators{display: none;}
+
 .footer-top{display: none;}
+
 .text-forecast {display: none;}
+
+nav ul{width:100%;}
+#weather-table-carousel {
+    width: 100% !important;
+}
+
+#weather-table-carousel,#weather-table-carousel .weather-card{display: block;}
+
+
+#weather-table-carousel .carousel-indicators{display: flex;bottom: -30px;}
+
+.logo-img img{width:50%}
+
+.text-white {
+    font-size: 10px;
+}
+
+b.ml-2,b.mr-2{display: none;}
+
+header .container{max-width:100%}
+
 }
 @media(min-width:768px) and (max-width:991px) /*small*/
 {
-    .logo .fas{display: inline-block;
-               color:#fff;
-            cursor: pointer;}
-    header{    padding: 15px 0px;}
-    .logo img{width:20% !important}
-    nav{display: none !important;}
-    nav.small{display: block !important;}
-    .news-carousel,.arabia-carousel,.posts-carousel{display: none;}
+
+.weather-table .col-md{    padding-right: 5px;
+    padding-left: 5px;}
+
+    .temp-day, .temp-night {
+        font-size: 1rem; }
+
+.logo .fas{display: inline-block;
+color:#fff;
+cursor: pointer;}
+
+header {padding: 15px 0px;}
+
+.navbar{display: none !important;}
+
+nav.small{display: block !important;}
+
+.news-carousel,.arabia-carousel,.posts-carousel{display: none;}
+
 .news-carousel-small,.arabia-carousel-small,.posts-carousel-small{display: block;
 padding:30px 0px;
-width:90%;
+width:100%;
 margin: auto;}
+
 .news-carousel-small .card,.arabia-carousel-small .card,.posts-carousel-small .card{width: 100%;
 margin: 0px;}
+
 .carousel-indicators{display: none;}
+
 .footer-top{display: none;}
+
 .text-forecast {display: none;}
+
+nav ul{width:100%;}
+
+.logo-img img{width:30%}
+
+header .container{max-width:100%}
 }
 
 
 @media(min-width:1001px) and (max-width:1199px) {/*medium*/
+    nav ul{width:100%;}
 
 }
 
@@ -50,5 +101,3 @@ margin: 0px;}
 {
 
 }
-
-

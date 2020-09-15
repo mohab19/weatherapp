@@ -7,25 +7,39 @@
 <!--header-->
 <header>
     <div class="container">
-        <div class="logo ">
-            <img src="img/logo.svg" alt="logo">
-            <i class="fas fa-bars navbar-toggler"  data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"></i>
+        <div class="logo">
+            <div class="logo-img align-items-center row">
+                <img src="img/logo.svg" alt="logo">
+                <div class="nav-wrapper @if(app()->getLocale() == 'ar') mr-3 @else ml-3 @endif" style="border: 1px solid #fff;border-radius: 5px;padding: 5px 15px;">
+                    <div class="sl-nav text-white">
+                        <ul>
+                            <li>
+                                <a href="{{url('/').'/'}}@lang('home.lng')"><b class="text-white">@lang('home.lang_op')</b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <span class="login d-flex align-items-center">
+                <a href="{{route('login')}}"><i class="fas fa-user"></i> <b class="ml-2">@lang('home.login')</b></a>
+            </span>
+            <i class="fas fa-bars navbar-toggler" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"></i>
         </div>
     </div>
 </header>
-<!--header-->
+ <!--header-->
 
 <!--nav-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg  navbar-light bg-light">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav @if(app()->getLocale() == 'ar') ml-auto @else mr-auto @endif mt-2 mt-lg-0">
                 <li class="nav-item ">
-                    <a class="nav-link d-flex align-items-center" href="index.html"><i class="fas fa-home mr-2"></i> Home </a>
+                    <a class="nav-link d-flex align-items-center" href="{{url('/').'/'}}@lang('home.lng')"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
                 </li>
                 <li class="nav-item dropdown dmenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Weather
+                        @lang('home.weather')
                     </a>
                     <div class="dropdown-menu sm-menu">
                         <a class="dropdown-item" href="#">10 Days Forecast</a>
@@ -35,7 +49,7 @@
                 </li>
                 <li class="nav-item dropdown dmenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Weather News
+                        @lang('home.news')
                     </a>
                     <div class="dropdown-menu sm-menu">
                         <a class="dropdown-item" href="#">Local Weather News</a>
@@ -90,7 +104,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sat.html">Satellite</a>
+                    <a class="nav-link" href="sat.html">@lang('home.satellite')</a>
                 </li>
             </ul>
         </div>

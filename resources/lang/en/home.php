@@ -19,8 +19,14 @@ return [
     'news'       => 'News',
     'radar'      => 'Radar',
     'login'      => 'Login',
-    'lang'       => 'عربي',
+    'lang'       => 'English',
+    'lang_op'    => 'عربي',
     'max'        => 'Max',
     'min'        => 'Min',
     'search'     => 'Search for your city',
+    'lng'        => 'ar',
+    'weather'    => 'Weather',
+    'news'       => 'News',
+    'satellite'  => 'Satellite',
+
 ];

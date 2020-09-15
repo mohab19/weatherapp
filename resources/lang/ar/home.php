@@ -19,9 +19,14 @@ return [
     'news'       => 'الأخبار',
     'radar'      => 'رادار',
     'login'      => 'تسجبل الدخول',
-    'lang'       => 'English',
+    'lang'       => 'عربي',
+    'lang_op'    => 'English',
     'max'        => 'العظمى',
     'min'        => 'الصغرى',
     'search'     => 'ابحث عن مدينتك',
-
+    'lng'        => 'en',
+    'weather'    => 'الطقس',
+    'news'       => 'أخبار',
+    'satellite'  => 'رادار',
+    
 ];

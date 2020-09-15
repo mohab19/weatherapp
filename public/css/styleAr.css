@@ -1,0 +1,11 @@
+body{direction: rtl;
+    text-align: right;}
+
+header select{margin-left:4%;}
+.news-box p{margin-right:5%}
+.story a p{margin-right: 5%;}    
+.details{left:5%;}
+.fa-share-alt{right: 33px;}
+.carousel-control-next, .carousel-control-prev{margin-right: 20px;}
+.footer-top li{ margin-left: 10px;}
+.dropdown-item {text-align:right}
