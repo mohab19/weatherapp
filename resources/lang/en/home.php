@@ -18,7 +18,7 @@ return [
     'climate'    => 'Climate',
     'news'       => 'News',
     'radar'      => 'Radar',
-    'login'      => 'Login',
+    'login'      => 'create new account | log in',
     'lang'       => 'English',
     'lang_op'    => 'عربي',
     'max'        => 'Max',

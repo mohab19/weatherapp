@@ -12,7 +12,7 @@
     </style>
 @endpush
 @section('content')
-<!--weather table-->
+<!--weather table
 <div class="weather-table">
     <div class="container">
         <div class="search-box d-flex align-items-center">
@@ -25,27 +25,84 @@
 
             </ul>
         </div>
-        <!-- forcasting section -->
+        forcasting section
         <div class="row" id="climate">
-            @include('climate', ['forcasting' => $forcasting])
+            include('climate', ['forcasting' => $forcasting])
         </div>
-        <!-- forcasting section -->
+        forcasting section
     </div>
 </div>
-<!-- end main -->
+end main -->
 
-<!-- text div -->
-<div class="text-forecast">
-    <div class="container d-flex">
-        <div class="text-forecast-label">
-            <span><i class="aw-info"></i> Text Summary</span>
-        </div>
-        <div class="text-forecast-content">
-            The weather today is expected to be mostly clear and the maximum temperature will be 37°C which is similar to yesterday. The weather tonight is expected to be foggy and the minimum temperature will be 24°C which is colder by 3°C than last night.&nbsp;
+<!--radar section-->
+<section class="radar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 grey">
+                <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <img src="img/Foreca.png" alt="foreca-logo">
+                        <h4>foreca</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <img src="img/bbc.png" alt="BBC-logo">
+                        <h4>BBC</h4>
+                    </div>
+                </a>
+            </div>
+                <div class="col-md-3 grey">
+                    <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <h4>theweather</h4>
+                    </div>
+                </div>
+            </a>
+                <div class="col-md-3">
+                    <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <h4>cola</h4>
+                    </div>
+                </div>
+            </a>
+            <div class="col-md-3">
+                <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <img src="img/wetter.png" alt="wetter-logo">
+                        <h4>wetteronline</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 grey">
+                <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <img src="img/ucar.png" alt="ucar-logo">
+                        <h4>ucar</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ">
+                <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <img src="img/noaa.png" alt="noaa-logo">
+                        <h4>noaa</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 grey">
+                <a href="{{url(app()->getLocale() . '/side')}}">
+                    <div class="radar-ex">
+                        <img src="img/meteostar.png" alt="meteo-logo">
+                        <h4>meteo star</h4>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<!-- text div -->
+</section>
 
 <!--stalite map-->
 <div class="satellite">
@@ -58,12 +115,9 @@
                     <a href="#" class="maps">More Maps <i class="fas fa-angle-double-right"></i></a>
                 </div>
                 <div class="weather-news">
-                    <h3> <i class="fas fa-cloud-sun mx-2"></i>@lang('home.news')</h3>
+                    <h3> <i class="fas fa-cloud-sun mx-2"></i>Weather Map</h3>
                     <div class="news-box d-flex">
-                        <image src='img/news.jpg' width=60% height=291>
-                        <p>lorem ipsum </p>
-                        <a href="#" class="details">Details <i class="fas fa-angle-double-right"></i></a>
-                        <i class="fas fa-share-alt"></i>
+                        <iframe src="https://www.rainviewer.com/map.html?loc=24.7136,46.6753,5&oFa=0&oC=0&oU=0&oCS=1&oF=0&oAP=0&rmt=4&c=1&o=83&lm=0&th=0&sm=1&sn=1" width="100%" style="height:50vh;" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="news-carousel">
@@ -204,8 +258,7 @@
                 </div>
                 <div class="map">
                     <p>weather map</p>
-                    <img class="img-responsive" width="100%" alt="Weather Map" src="https://assets.devops.arabiaweather.com/images/weather-map-card.svg">
-                    <iframe width="100%" height="250" src="https://embed.windy.com/embed2.html?lat=30.078&lon=31.285&detailLat=30.078&detailLon=31.285&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+                    <iframe width="100%" height="250" src="https://embed.windy.com/embed2.html?lat=24.7136&lon=46.6753&detailLat=24.7136&detailLon=46.6753&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
                 </div>
             </div>
         </div>

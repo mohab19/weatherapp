@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 use App\City;
+use App\News;
 
 class HomeController extends Controller
 {
@@ -27,7 +29,7 @@ class HomeController extends Controller
         $curl = curl_init();
         $lang = \Lang::locale();
         curl_setopt_array($curl, array(
-        	CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/forecast?q=".$city.",sa&units=metric&mode=json&lang=".$lang."&cnt=5",
+        	CURLOPT_URL => "https://api.openweathermap.org/data/2.5/onecall?lat=24.7136&lon=46.6753&exclude=hourly&lang=".$lang."&units=metric&appid=ea9afa67b09d57bb2cecc4756e51e30e",
         	CURLOPT_RETURNTRANSFER => true,
         	CURLOPT_FOLLOWLOCATION => true,
         	CURLOPT_ENCODING => "",
@@ -35,10 +37,7 @@ class HomeController extends Controller
         	CURLOPT_TIMEOUT => 30,
         	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         	CURLOPT_CUSTOMREQUEST => "GET",
-        	CURLOPT_HTTPHEADER => array(
-        		"x-rapidapi-host: community-open-weather-map.p.rapidapi.com",
-        		"x-rapidapi-key: 91b5f13eafmsh68a341471bdd43dp16be19jsn136626c3bb21"
-        	),
+        	CURLOPT_HTTPHEADER => array(),
         ));
 
         $response = curl_exec($curl);
@@ -50,34 +49,37 @@ class HomeController extends Controller
         	echo "cURL Error #:" . $err;
         } else {
             $result = json_decode($response);
-            $list = $result->list;
+            $list = $result->daily;
             //dd($list);
             $forcasting = array(
-                'city'     => $result->city->name,
-                'coundtry' => $result->city->country,
+                'city'     => $result->timezone,
                 'forcast'  => array()
             );
             foreach($list as $key => $value)
             {
-                $forcasting["forcast"][$key]["date"]      = date("Y-m-d", strtotime($value->dt_txt));
-                $forcasting["forcast"][$key]["date_name"] = date("D", strtotime($value->dt_txt));
-                $forcasting["forcast"][$key]["max_temp"]  = $value->main->temp_max;
-                $forcasting["forcast"][$key]["min_temp"]  = $value->main->temp_min;
+                $forcasting["forcast"][$key]["date"]      = gmdate("Y-m-d", $value->dt);
+                $forcasting["forcast"][$key]["date_name"] = gmdate("D", $value->dt);
+                $forcasting["forcast"][$key]["max_temp"]  = intval($value->temp->max);
+                $forcasting["forcast"][$key]["min_temp"]  = intval($value->temp->min);
                 $forcasting["forcast"][$key]["weather"]   = $value->weather[0]->description;
                 $forcasting["forcast"][$key]["icon"]      = "http://openweathermap.org/img/wn/".$value->weather[0]->icon."@2x.png";
-                $forcasting["forcast"][$key]["wind"]      = $value->wind->speed;
+                $forcasting["forcast"][$key]["wind"]      = $value->wind_speed;
                 if($key > 6) {
                     break;
                 }
             }
 
         }
+
         if(request()->ajax()) {
             $view = view('climate', ['forcasting' => $forcasting])->render();
             return \Response::json(['status' => 200, 'view' => $view]);
         }
-        $cities = City::all();
-        return view('home', compact('forcasting', 'cities'));
+
+        $cities     = City::all();
+        $news       = News::all();
+        $categories = Category::all();
+        return view('home', compact('forcasting', 'cities', 'categories', 'news'));
     }
 
     public function getLocation($lang, Request $request)
@@ -112,5 +114,10 @@ class HomeController extends Controller
                         orWhere('name_en', 'like', '%'.$city.'%')->
                         get();
         return $result;
+    }
+
+    public function side()
+    {
+        return view('radar.side');
     }
 }

@@ -44,6 +44,7 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
+  height: 65vh;
 }
 
 #formContent {
@@ -53,7 +54,6 @@ h2 {
   padding: 30px;
   width: 90%;
   max-width: 450px;
-  position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 20px 40px 0 #fff;
   box-shadow: 0 20px 40px 0 #fff;
@@ -270,3 +270,4 @@ input[type=text]:focus {
 * {
   box-sizing: border-box;
 }
+

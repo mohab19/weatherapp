@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
+    @stack('styles')
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/media.css')}}">
     @if(app()->getLocale() == 'ar')
@@ -17,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('css/styleAr.css') }}">
     @endif
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap">
-    @stack('styles')
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
@@ -39,6 +39,7 @@
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/plugin.js')}}"></script>
     <script src="{{asset('js/weather.js')}}"></script>
+    <script src="{{asset('js/intelligent.js')}}" type="text/javascript"></script>
     @stack('scripts')
 </body>
 </html>

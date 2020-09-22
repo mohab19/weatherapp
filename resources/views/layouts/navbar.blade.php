@@ -8,26 +8,34 @@
 <header>
     <div class="container">
         <div class="logo">
-            <div class="logo-img align-items-center row">
-                <img src="img/logo.svg" alt="logo">
-                <div class="nav-wrapper @if(app()->getLocale() == 'ar') mr-3 @else ml-3 @endif" style="border: 1px solid #fff;border-radius: 5px;padding: 5px 15px;">
-                    <div class="sl-nav text-white">
-                        <ul>
-                            <li>
-                                <a href="{{url('/').'/'}}@lang('home.lng')"><b class="text-white">@lang('home.lang_op')</b></a>
-                            </li>
+            <div class="logo-img d-flex align-items-center">
+                <img src="{{asset('img/logo.svg')}}" alt="logo">
+                <div class="lang-dropdown">
+                    <div class="lang-select">
+                        <span><i class="fas fa-globe-asia"></i></span>&nbsp;
+                        @if(app()->getLocale() == 'ar')
+                        <span>عربي</span>&nbsp;
+                        @else
+                        <span>English</span>&nbsp;
+                        @endif
+                        <span><i class="fas fa-caret-down"></i></span>
+                    </div>
+                    <div class="lang-list">
+                        <ul class="list-unstyled">
+                            <li><a href="{{url('/ar')}}" class="d-flex" style="justify-content: space-between;"><span>عربي</span>@if(app()->getLocale() == 'ar') <span><i class="fas fa-check"></i></span> @endif</a></li>
+                            <li><a href="{{url('/en')}}"><span>English</span>@if(app()->getLocale() == 'en') <span><i class="fas fa-check"></i></span> @endif</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <span class="login d-flex align-items-center">
-                <a href="{{route('login')}}"><i class="fas fa-user"></i> <b class="ml-2">@lang('home.login')</b></a>
+                <a href="{{route('login', app()->getLocale())}}"><i class="fas fa-user"></i><b class="@if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif"> @lang('home.login') </b></a>
             </span>
             <i class="fas fa-bars navbar-toggler" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"></i>
         </div>
     </div>
 </header>
- <!--header-->
+<!--header-->
 
 <!--nav-->
 <nav class="navbar navbar-expand-lg  navbar-light bg-light">
@@ -52,11 +60,10 @@
                         @lang('home.news')
                     </a>
                     <div class="dropdown-menu sm-menu">
-                        <a class="dropdown-item" href="#">Local Weather News</a>
+                        @foreach($categories as $key => $category)
+                        <a class="dropdown-item @if(Lang::Locale() == 'ar') pr-2 @eslse pl-2 @endif" href="#">{{$category["name_".Lang::Locale()]}}</a>
                         <hr>
-                        <a class="dropdown-item" href="#">Arabia Local News</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Global Weather News</a>
+                        @endforeach
                     </div>
                 </li>
                 <li class="nav-item dropdown dmenu">

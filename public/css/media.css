@@ -1,18 +1,21 @@
 @media(max-width:767px) /* xs small*/
 {
-#climate .col-md{display:none;}
+
 .logo .fas{display: inline-block;
 color:#fff;
 cursor: pointer;}
+
+
 header{    padding: 15px 0px;}
 
 
 .navbar{display: none !important;}
 
+
 nav.small{display: block !important;}
 
-
 .news-carousel,.arabia-carousel,.posts-carousel{display: none;}
+
 
 .news-carousel-small,.arabia-carousel-small,.posts-carousel-small{display: block;
 padding:30px 0px;
@@ -29,14 +32,7 @@ margin: 0px;}
 .text-forecast {display: none;}
 
 nav ul{width:100%;}
-#weather-table-carousel {
-    width: 100% !important;
-}
 
-#weather-table-carousel,#weather-table-carousel .weather-card{display: block;}
-
-
-#weather-table-carousel .carousel-indicators{display: flex;bottom: -30px;}
 
 .logo-img img{width:50%}
 
@@ -44,25 +40,28 @@ nav ul{width:100%;}
     font-size: 10px;
 }
 
-b.ml-2,b.mr-2{display: none;}
+.wrapper{  height: 90vh;}
 
 header .container{max-width:100%}
 
+.login b{display: none;}
+
+.lang-select span:nth-child(2){display: none;}
+.satellite ul{width: 100%;}
+
+.sat-map .my-2{display: none;}
 }
 @media(min-width:768px) and (max-width:991px) /*small*/
 {
 
-.weather-table .col-md{    padding-right: 5px;
-    padding-left: 5px;}
-
-    .temp-day, .temp-night {
-        font-size: 1rem; }
-
+.satellite ul{width: 70%;}
 .logo .fas{display: inline-block;
 color:#fff;
 cursor: pointer;}
 
-header {padding: 15px 0px;}
+header{    padding: 15px 0px;}
+
+.wrapper{  height: 90vh;}
 
 .navbar{display: none !important;}
 
@@ -94,10 +93,12 @@ header .container{max-width:100%}
 
 @media(min-width:1001px) and (max-width:1199px) {/*medium*/
     nav ul{width:100%;}
-
+   
 }
 
 @media(min-width:1200px) /*large*/
 {
 
 }
+
+
