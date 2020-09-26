@@ -26,8 +26,8 @@ class HomeController extends Controller
      */
     public function index($lang, $city = 'Riyadh')
     {
-        $curl = curl_init();
         $lang = \Lang::locale();
+        /*$curl = curl_init();
         curl_setopt_array($curl, array(
         	CURLOPT_URL => "https://api.openweathermap.org/data/2.5/onecall?lat=24.7136&lon=46.6753&exclude=hourly&lang=".$lang."&units=metric&appid=ea9afa67b09d57bb2cecc4756e51e30e",
         	CURLOPT_RETURNTRANSFER => true,
@@ -68,18 +68,17 @@ class HomeController extends Controller
                     break;
                 }
             }
-
         }
 
         if(request()->ajax()) {
             $view = view('climate', ['forcasting' => $forcasting])->render();
             return \Response::json(['status' => 200, 'view' => $view]);
-        }
+        }*/
 
         $cities     = City::all();
         $news       = News::all();
         $categories = Category::all();
-        return view('home', compact('forcasting', 'cities', 'categories', 'news'));
+        return view('home', compact('cities', 'categories', 'news'));
     }
 
     public function getLocation($lang, Request $request)
@@ -120,4 +119,5 @@ class HomeController extends Controller
     {
         return view('radar.side');
     }
+
 }

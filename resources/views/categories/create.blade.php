@@ -55,12 +55,20 @@
                                 <input type="hidden" id="form_name" value="Category" data-id="categories">
                                 <input type="hidden" id="route" value="{{route('categories.store', app()->getLocale())}}">
                                 <div class="form-group">
-                                    <label for="name_ar" class="col-form-label">@lang('categories.name_ar')</label>
-                                    <input type="text" name="name_ar" class="form-control" required>
+                                    <label for="name" class="col-form-label">@lang('categories.name')</label>
+                                    <input type="text" name="name" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name_en" class="col-form-label">@lang('categories.name_en')</label>
-                                    <input type="text" name="name_en" class="form-control" required>
+                                    <label for="url_call" class="col-form-label">@lang('categories.url_call')</label>
+                                    <input type="text" name="url_call" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time_format" class="col-form-label">@lang('categories.time_format')</label>
+                                    <input type="text" name="time_format" class="form-control" placeholder="Y-m-d H:i:s">
+                                </div>
+                                <div class="form-group">
+                                    <label for="time_interval" class="col-form-label">@lang('categories.time_interval')</label>
+                                    <input type="number" name="time_interval" class="form-control">
                                 </div>
                                 <div class="col-sm-12 text-center pl-0 mt-3" style="float: right;">
                                     <button type="submit" class="btn btn-space btn-primary col-sm-4">@lang('main.save')</button>

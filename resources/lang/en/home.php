@@ -16,7 +16,7 @@ return [
     'wind_speed' => 'Wind speed',
     'home'       => 'Home',
     'climate'    => 'Climate',
-    'news'       => 'News',
+    'your_news'  => 'followers News',
     'radar'      => 'Radar',
     'login'      => 'create new account | log in',
     'lang'       => 'English',

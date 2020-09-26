@@ -28,6 +28,7 @@ Route::group(['prefix' => '{language?}'], function () {
     Route::get('/news', 'NewsController@index');
     Route::get('/radar', 'RadarController@index');
     Route::get('/side', 'HomeController@side');
+    Route::get('/category/{category}', 'CategoryController@categories');
     Route::group(['middleware' => ['auth:admin']], function () {
         /*** home page admin route ***/
         Route::get('/admin', 'AdminController@index')->name('admin');
@@ -39,7 +40,6 @@ Route::group(['prefix' => '{language?}'], function () {
             /*** System routes ***/
             Route::resource('categories', 'CategoryController');
             Route::resource('news', 'NewsController');
-
         });
     });
 });

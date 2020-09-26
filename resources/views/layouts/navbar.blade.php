@@ -41,62 +41,20 @@
 <nav class="navbar navbar-expand-lg  navbar-light bg-light">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav @if(app()->getLocale() == 'ar') ml-auto @else mr-auto @endif mt-2 mt-lg-0">
+            <ul class="navbar-nav mt-2 mt-lg-0" style="width: 100%;">
                 <li class="nav-item ">
                     <a class="nav-link d-flex align-items-center" href="{{url('/').'/'}}@lang('home.lng')"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
                 </li>
-                <li class="nav-item dropdown dmenu">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        @lang('home.weather')
-                    </a>
-                    <div class="dropdown-menu sm-menu">
-                        <a class="dropdown-item" href="#">10 Days Forecast</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Hourly Weather</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="sat.html">@lang('home.satellite')</a>
                 </li>
-                <li class="nav-item dropdown dmenu">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        @lang('home.news')
-                    </a>
-                    <div class="dropdown-menu sm-menu">
-                        @foreach($categories as $key => $category)
-                        <a class="dropdown-item @if(Lang::Locale() == 'ar') pr-2 @eslse pl-2 @endif" href="#">{{$category["name_".Lang::Locale()]}}</a>
-                        <hr>
-                        @endforeach
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="sat.html">@lang('home.radar')</a>
                 </li>
-                <li class="nav-item dropdown dmenu">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        LifeStyle & Weather
-                    </a>
-                    <div class="dropdown-menu sm-menu">
-                        <a class="dropdown-item" href="#">Places</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Tips For Travellers</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Health & Weather</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Travel & Tourism</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="sat.html">@lang('home.your_news')</a>
                 </li>
-                <li class="nav-item dropdown dmenu">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Science & Nature
-                    </a>
-                    <div class="dropdown-menu sm-menu">
-                        <a class="dropdown-item" href="#">Astronomy & Space</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Nature</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Animal & Insects</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Energy</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Weather Science</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown dmenu">
+                <!--<li class="nav-item dropdown dmenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         Specialists & Amateurs
                     </a>
@@ -109,10 +67,7 @@
                         <hr>
                         <a class="dropdown-item" href="#">Earthquake Observatory</a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sat.html">@lang('home.satellite')</a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>

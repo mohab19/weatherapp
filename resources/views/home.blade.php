@@ -39,7 +39,7 @@ end main -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/side')}}">
+                <a href="{{url(app()->getLocale() . '/models/foreca')}}">
                     <div class="radar-ex">
                         <img src="img/Foreca.png" alt="foreca-logo">
                         <h4>foreca</h4>
@@ -93,7 +93,7 @@ end main -->
                 </a>
             </div>
             <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/side')}}">
+                <a href="{{url(app()->getLocale() . '/category/1')}}">
                     <div class="radar-ex">
                         <img src="img/meteostar.png" alt="meteo-logo">
                         <h4>meteo star</h4>
@@ -286,30 +286,16 @@ end main -->
                 </div>
                 <div class="carousel-item active" data-interval="10000">
                     <div class="arabia-carousel-inner d-flex">
+                        @foreach($news as $key => $news)
                         <div class="card">
-                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                            <img src="{{url('/images/news').'/'}}{{$news->image}}" class="card-img-top" alt="...">
+                            <div class="card-body" style="margin: 0px;padding: 10px;">
+                                <h5 class="card-title text-center">{{$news["title_".Lang::locale()]}}</h5>
+                                <p class="card-text">{{substr($news->description, 0, 150)}}...</p>
+                                <a href="{{route('news.show', [app()->getLocale(), $news->id])}}" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
                             </div>
                         </div>
-                        <div class="card">
-                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="carousel-item" data-interval="2000">

@@ -1,0 +1,32 @@
+.map img{width:100%}
+.map{position: relative;}
+.map-cities{position: absolute;
+top:0px;
+left:0px;
+width:100%;}
+
+
+
+.buttons-toward button{width:300px;
+    border: 0px;
+    padding:5px;
+    border-radius: 4px;
+    background-color: #1E202B;
+    color: #fff;
+    margin-right:10px;
+    cursor: pointer;}
+
+
+.buttons-toward{justify-content: space-between;
+align-items: center;}
+
+
+
+
+#bt1{padding:10px 0px;
+border:0px;
+display: block;
+margin: 20px auto;
+border-radius: 5px;
+background-color: #1E202B;
+color: #fff;}

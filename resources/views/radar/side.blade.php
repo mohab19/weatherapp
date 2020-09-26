@@ -20,7 +20,7 @@
                <li><a href="#">لبنان</a></li>
                <li><a href="#">مصر</a></li>
             </ul>
-            <a href='#'><image src="{{asset('img/الشام.jpg')}}" width="100%"></a>
+            <a href='#'><image src="{{asset('img/sham.jpg')}}" width="100%"></a>
             <div class="hours">
                 <div class="row">
                     <div class="col-md-4 ">
@@ -44,7 +44,7 @@
             <div class="col-md-4">
                 <div class="map">
                     <a href="{{asset('img/البروق.jpg')}}">
-                        <img src="{{asset('img/البروق.jpg')}}" class="img-fluid" alt="البروق">
+                        <img src="{{asset('img/lightning.jpg')}}" class="img-fluid" alt="البروق">
                     </a>
                     <div class="overlay">البروق</div>
                 </div>
@@ -52,7 +52,7 @@
             <div class="col-md-4">
                 <div class="map">
                     <a href="{{asset('img/الحرارة.jpg')}}">
-                        <img src="{{asset('img/الحرارة.jpg')}}" class="img-fluid" alt="الحرارة">
+                        <img src="{{asset('img/heat.jpg')}}" class="img-fluid" alt="الحرارة">
                     </a>
                     <div class="overlay">درجات الحرارة السحب (ملون)</div>
                 </div>
@@ -60,7 +60,7 @@
             <div class="col-md-4">
                 <div class="map">
                     <a href="{{asset('img/الحرارة2.jpg')}}">
-                        <img src="{{asset('img/الحرارة2.jpg')}}" class="img-fluid" alt="الحرارة">
+                        <img src="{{asset('img/heat2.jpg')}}" class="img-fluid" alt="الحرارة">
                     </a>
                     <div class="overlay">درجات الحرارة السحب</div>
                </div>
@@ -68,7 +68,7 @@
             <div class="col-md-4">
                 <div class="map">
                     <a href="{{asset('img/الحمراء.jpg')}}">
-                        <img src="{{asset('img/الحمراء.jpg')}}" class="img-fluid" alt="الاشعه تحت الحمراء">
+                        <img src="{{asset('img/infra.jpg')}}" class="img-fluid" alt="الاشعه تحت الحمراء">
                     </a>
                     <div class="overlay">الاشعة تحت الحمراء</div>
                 </div>

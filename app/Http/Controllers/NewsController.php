@@ -26,8 +26,7 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $categories = Category::all();
-        return view('news.create', compact('categories'));
+        return view('news.create');
     }
 
     /**
@@ -41,7 +40,6 @@ class NewsController extends Controller
         request()->image->move(public_path('images/news'), $imageName);
 
         $news = News::create([
-            'category_id'   => $request->category_id,
             'title_ar'      => $request->title_ar,
             'title_en'      => $request->title_en,
             'writer'        => $request->writer,
@@ -73,8 +71,7 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($lang, News $news) {
-        $categories = Category::all();
-        return view('news.edit', compact('categories', 'news'));
+        return view('news.edit', compact('news'));
     }
 
     /**
@@ -94,7 +91,6 @@ class NewsController extends Controller
         }
 
         $news->update([
-            'category_id'   => $request->category_id,
             'title_ar'      => $request->title_ar,
             'title_en'      => $request->title_en,
             'writer'        => $request->writer,

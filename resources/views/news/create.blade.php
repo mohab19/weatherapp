@@ -49,15 +49,6 @@
                                 <input type="hidden" id="route" value="{{route('news.store', app()->getLocale())}}">
                                 <input type="hidden" id="form_name" value="News" data-id="news">
                                 <div class="form-group col-sm-6">
-                                    <label for="type" class="col-form-label">@lang('news.categories')</label>
-                                    <select name="category_id" class="form-control" required>
-                                        <option value="0" disabled selected>@lang('select_category') : </option>
-                                        @foreach($categories as $key => $category)
-                                        <option value="{{$category->id}}">{{$category['name_'.Lang::locale()]}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-sm-6">
                                     <label for="title_ar" class="col-form-label">@lang('news.title_ar')</label>
                                     <input type="text" name="title_ar" class="form-control" required>
                                 </div>
@@ -72,6 +63,10 @@
                                 <div class="form-group col-sm-12">
                                     <label for="description" class="col-form-label">@lang('news.description')</label>
                                     <textarea name="description" rows="3" cols="80" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="image_url" class="col-form-label">@lang('news.image_url')</label>
+                                    <input type="text" name="image_url" class="form-control" required>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label class="col-form-label" for="customFile">@lang('news.image')</label>

@@ -16,4 +16,6 @@ return [
     'is_required'     => 'Required',
     'writer'          => 'Writer',
     'created_at'      => 'Created At',
+    'image_url'       => 'Attachement Link',
+
 ];

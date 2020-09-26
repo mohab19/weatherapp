@@ -9,10 +9,5 @@ class News extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['category_id', 'title_ar', 'title_en', 'writer', 'description', 'image'];
-
-    public function Category()
-    {
-        return $this->belongsTo('App\Category');
-    }
+    protected $fillable = ['title_ar', 'title_en', 'writer', 'description', 'image'];
 }

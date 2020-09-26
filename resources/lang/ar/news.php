@@ -16,5 +16,6 @@ return [
     'is_required'     => 'مطلوب',
     'writer'          => 'الكاتب',
     'created_at'      => 'تاريخ الاضافة',
-
+    'image_url'       => 'رابط المرفقات',
+    
 ];

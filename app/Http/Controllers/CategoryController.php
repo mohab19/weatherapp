@@ -98,4 +98,9 @@ class CategoryController extends Controller
         $categories = Category::all();
         return $categories;
     }
+
+    public function categories($lang, Category $category)
+    {
+        return view('categories.category', compact('category'));
+    }
 }

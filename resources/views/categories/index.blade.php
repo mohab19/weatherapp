@@ -57,7 +57,10 @@
                                     <thead>
                                         <tr>
                                             <th>{{ Lang::get('main.id') }}</th>
-                                            <th>{{ Lang::get('main.name') }}</th>
+                                            <th>{{ Lang::get('categories.name') }}</th>
+                                            <th>{{ Lang::get('categories.url_call') }}</th>
+                                            <th>{{ Lang::get('categories.time_format') }}</th>
+                                            <th>{{ Lang::get('categories.time_interval') }}</th>
                                             <th>{{ Lang::get('main.action') }}</th>
                                         </tr>
                                     </thead>
@@ -65,7 +68,10 @@
                                         @foreach($categories as $key => $category)
                                             <tr class="delete_{{$category->id}}">
                                                 <td>{{$category->id}}</td>
-                                                <td>{{$category['name_'.Lang::locale()]}}</td>
+                                                <td>{{$category['name']}}</td>
+                                                <td>{{$category['url_call']}}</td>
+                                                <td>{{$category['time_format']}}</td>
+                                                <td>{{$category['time_interval']}}</td>
                                                 <td class="@if(Lang::locale() == 'ar') text-left @else text-right @endif">
                                                     <a class="btn btn-primary" href="{{URL( app()->getLocale() . '/admin/categories/' . $category->id)}}" style="padding: 5px 10px;">
                                                         <i class="fas fa-eye"></i>
@@ -83,7 +89,10 @@
                                     <tfoot>
                                         <tr>
                                             <th>{{ Lang::get('main.id') }}</th>
-                                            <th>{{ Lang::get('main.name') }}</th>
+                                            <th>{{ Lang::get('categories.name') }}</th>
+                                            <th>{{ Lang::get('categories.url_call') }}</th>
+                                            <th>{{ Lang::get('categories.time_format') }}</th>
+                                            <th>{{ Lang::get('categories.time_interval') }}</th>
                                             <th>{{ Lang::get('main.action') }}</th>
                                         </tr>
                                     </tfoot>

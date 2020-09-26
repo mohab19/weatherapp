@@ -57,7 +57,6 @@
                                     <thead>
                                         <tr>
                                             <th>@lang('news.id')</th>
-                                            <th>@lang('news.category')</th>
                                             <th>@lang('news.title_ar')</th>
                                             <th>@lang('news.title_ar')</th>
                                             <th>@lang('news.image')</th>
@@ -71,7 +70,6 @@
                                         @foreach($news as $key => $value)
                                             <tr class="delete_{{$value->id}}">
                                                 <td>{{$value->id}}</td>
-                                                <td>{{$value->Category["name_".Lang::locale()]}}</td>
                                                 <td>{{$value->title_ar}}</td>
                                                 <td>{{$value->title_en}}</td>
                                                 <td>
@@ -96,7 +94,6 @@
                                     <tfoot>
                                         <tr>
                                             <th>@lang('news.id')</th>
-                                            <th>@lang('news.category')</th>
                                             <th>@lang('news.title_ar')</th>
                                             <th>@lang('news.title_ar')</th>
                                             <th>@lang('news.image')</th>
