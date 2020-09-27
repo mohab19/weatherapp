@@ -37,7 +37,7 @@ end main -->
 <!--radar section-->
 <section class="radar">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row text-center">
             <div class="col-md-3 grey">
                 <a href="{{url(app()->getLocale() . '/models/foreca')}}">
                     <div class="radar-ex">
@@ -54,20 +54,21 @@ end main -->
                     </div>
                 </a>
             </div>
-                <div class="col-md-3 grey">
-                    <a href="{{url(app()->getLocale() . '/side')}}">
+            <div class="col-md-3 grey">
+                <a href="{{url(app()->getLocale() . '/side')}}">
                     <div class="radar-ex">
                         <h4>theweather</h4>
                     </div>
-                </div>
-            </a>
-                <div class="col-md-3">
-                    <a href="{{url(app()->getLocale() . '/side')}}">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{url(app()->getLocale() . '/category/2')}}">
                     <div class="radar-ex">
+                        <img src="img/cola.gif" alt="BBC-logo">
                         <h4>cola</h4>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
             <div class="col-md-3">
                 <a href="{{url(app()->getLocale() . '/side')}}">
                     <div class="radar-ex">

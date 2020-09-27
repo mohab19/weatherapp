@@ -9,6 +9,11 @@ class Category extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'url_call', 'time_format', 'time_interval'];
+    protected $fillable = ['name', 'basic_url', 'url_call', 'time_format', 'time_interval', 'time_limits'];
+
+    public function Types()
+    {
+        return $this->hasMany('App\Type');
+    }
 
 }

@@ -20,9 +20,15 @@
                 </div>
                 <div id="s" style="display: none;"></div>
                 <div id="all">
+                    @if($category->Types)
                     <div>
-                        <select class="form-control" style="width:100%;height:29.6;direction:rtl;" id="script" onchange="update();"><option value="https://assets.weather-forecast.com/maps/dynamic/SaudiArabia.prec.">الأمطار</option><option value="https://assets.weather-forecast.com/maps/dynamic/SaudiArabia.cloud.">السحب</option> </select>
+                        <select class="form-control" style="width:100%;height:29.6;direction:rtl;" id="script" onchange="update();">
+                            @foreach($category->Types as $key => $type)
+                            <option value="{{$type->basic_url}}">{{$type['name_'.Lang::Locale()]}}</option>
+                            @endforeach
+                        </select>
                     </div>
+                    @endif
                     <div class="buttons-toward d-flex">
                         <div>
                             <button type="button" onclick="chang('-')">@lang('categories.previous')</button>
@@ -30,8 +36,8 @@
                         <div>
                             <select class="form-control" id="hour" onchange="update();">
                                 @if($category->time_format == null)
-                                    @for($i = 1; $i <= 30; $i++)
-                                    <option value="{{$i*$category->time_interval}}{{$category->url_call}}">+{{$i*$category->time_interval}} @lang('categories.hours')</option>
+                                    @for($i = -2; ($i*$category->time_interval) <= ($category->time_limits*$category->time_interval); $i++)
+                                    <option value="{{($i*($category->time_interval))}}{{$category->url_call}}">+{{$i*$category->time_interval}} @lang('categories.hours')</option>
                                     @endfor
                                 @endif
                             </select>

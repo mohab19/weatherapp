@@ -14,5 +14,6 @@ return [
     'previous'       => 'Previous',
     'next'           => 'Next',
     'forecasting'    => 'Rain Forecasting from ',
-
+    'basic_url' => 'Baic URL',
+    
 ];

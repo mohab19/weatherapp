@@ -39,6 +39,7 @@ Route::group(['prefix' => '{language?}'], function () {
             Route::get('users/activation/{user}','UserController@activation');
             /*** System routes ***/
             Route::resource('categories', 'CategoryController');
+            Route::resource('types', 'TypeController');
             Route::resource('news', 'NewsController');
         });
     });

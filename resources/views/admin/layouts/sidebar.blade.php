@@ -19,6 +19,9 @@
                     <a class="nav-link" href="{{route('categories.index', app()->getLocale())}}"><i class="fas fa-cubes"></i> @lang('main.categories')</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('types.index', app()->getLocale())}}"><i class="far fa-file-alt"></i> @lang('main.types')</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('news.index', app()->getLocale())}}"><i class="fas fa-newspaper"></i> @lang('main.news')</a>
                 </li>
                 @endauth
