@@ -39,6 +39,10 @@
                                     @for($i = -2; ($i*$category->time_interval) <= ($category->time_limits*$category->time_interval); $i++)
                                     <option value="{{($i*($category->time_interval))}}{{$category->url_call}}">+{{$i*$category->time_interval}} @lang('categories.hours')</option>
                                     @endfor
+                                @else
+                                    @for($i = 0; ($i*$category->time_interval) <= ($category->time_limits*$category->time_interval); $i++)
+                                    <option value="{{date($category->time_format, strtotime('+'.$i.' days'))}}{{($i*($category->time_interval)) < 10 ? sprintf('%02d', ($i*($category->time_interval))) : ($i*($category->time_interval))}}{{$category->url_call}}">+{{$i*$category->time_interval}} @lang('categories.hours')</option>
+                                    @endfor
                                 @endif
                             </select>
                         </div>

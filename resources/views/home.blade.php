@@ -70,18 +70,18 @@ end main -->
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{url(app()->getLocale() . '/side')}}">
+                <a href="{{url(app()->getLocale() . '/category/3')}}">
                     <div class="radar-ex">
-                        <img src="img/wetter.png" alt="wetter-logo">
-                        <h4>wetteronline</h4>
+                        <img src="{{asset('img/meteopool.png')}}" alt="wetter-logo">
+                        <h4>Meteopool</h4>
                     </div>
                 </a>
             </div>
             <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/side')}}">
-                    <div class="radar-ex">
-                        <img src="img/ucar.png" alt="ucar-logo">
-                        <h4>ucar</h4>
+                <a href="{{url(app()->getLocale() . '/category/4')}}">
+                    <div class="">
+                        <img src="img/jetplan.gif" alt="ucar-logo">
+                        <h4>Jetplan</h4>
                     </div>
                 </a>
             </div>
