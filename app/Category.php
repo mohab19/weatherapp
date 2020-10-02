@@ -9,7 +9,7 @@ class Category extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'basic_url', 'url_call', 'time_format', 'time_interval', 'time_limits'];
+    protected $fillable = ['name', 'basic_url', 'url_call', 'time_format', 'second_time_format', 'time_interval', 'time_limits'];
 
     public function Types()
     {

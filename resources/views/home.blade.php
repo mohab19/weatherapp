@@ -47,17 +47,16 @@ end main -->
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{url(app()->getLocale() . '/side')}}">
+                <a href="{{url(app()->getLocale() . '/category/5')}}">
                     <div class="radar-ex">
-                        <img src="img/bbc.png" alt="BBC-logo">
-                        <h4>BBC</h4>
+                        <h4>Canadian GEM</h4>
                     </div>
                 </a>
             </div>
             <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/side')}}">
+                <a href="{{url(app()->getLocale() . '/category/6')}}">
                     <div class="radar-ex">
-                        <h4>theweather</h4>
+                        <h4>Ocean View</h4>
                     </div>
                 </a>
             </div>

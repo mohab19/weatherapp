@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $cities     = City::all();
         $news       = News::all();
         $categories = Category::all();
+
         view()->share('categories', $categories);
         view()->share('news', $news);
         view()->share('cities', $cities);

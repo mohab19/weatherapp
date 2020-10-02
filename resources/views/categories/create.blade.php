@@ -71,6 +71,10 @@
                                     <input type="text" name="time_format" class="form-control" placeholder="Y-m-d H:i:s">
                                 </div>
                                 <div class="form-group">
+                                    <label for="second_time_format" class="col-form-label">@lang('categories.second_time_format')</label>
+                                    <input type="text" name="second_time_format" class="form-control" placeholder="Y-m-d H:i:s">
+                                </div>
+                                <div class="form-group">
                                     <label for="time_interval" class="col-form-label">@lang('categories.time_interval')</label>
                                     <input type="number" name="time_interval" class="form-control">
                                 </div>
