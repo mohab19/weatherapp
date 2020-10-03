@@ -11,9 +11,9 @@ class Type extends Model
 
     protected $fillable = ['category_id', 'name_ar', 'name_en', 'basic_url'];
 
-    public function Category()
+    public function Radar()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Radar');
     }
 
 }

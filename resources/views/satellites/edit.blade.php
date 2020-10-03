@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{URL('assets/vendor/datatables/css/fixedHeader.bootstrap4.css')}}">
 @endsection
 @section('title')
-    <title>@lang('radars.radars')</title>
+    <title>@lang('satellites.satellites')</title>
 @endsection
 @section('content')
 <div class="container-fluid dashboard-content">
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h1 class="page-title">@lang('radars.radars')
+                <h1 class="page-title">@lang('satellites.satellites')
                     <small>@lang('main.edit')</small>
                 </h1>
                 <div class="page-breadcrumb">
@@ -25,7 +25,7 @@
                             <li class="breadcrumb-item">
                                 <a href="{{URL( app()->getLocale() . '/admin')}}" class="breadcrumb-link">@lang('main.dashboard')</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page"><span>@lang('radars.radars')</span></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>@lang('satellites.satellites')</span></li>
                         </ol>
                     </nav>
                 </div>
@@ -43,7 +43,7 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">@lang('radars.edit')</h5>
+                        <h5 class="card-header">@lang('satellites.edit')</h5>
                         <div class="card-body">
                             <div class="alert alert-dismissible" id="notification" style="display: none;">
                                 <ul style="margin-bottom: 0;">
@@ -53,45 +53,15 @@
                             <form id="form">
                                 @csrf
                                 @method('PUT')
-                                <input type="hidden" id="form_name" value="Radar" data-id="radars">
-                                <input type="hidden" name="url" id="route" value="{{route('radars.update', [ app()->getLocale(), $radar->id])}}">
+                                <input type="hidden" id="form_name" value="Satellite" data-id="satellites">
+                                <input type="hidden" name="url" id="route" value="{{route('satellites.update', [ app()->getLocale(), $satellite->id])}}">
                                 <div class="form-group">
-                                    <label for="name" class="col-form-label">@lang('radars.name')</label>
-                                    <input type="text" name="name" class="form-control" value="{{$radar->name}}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="basic_url" class="col-form-label">@lang('radars.basic_url')</label>
-                                    <input type="text" name="basic_url" class="form-control" value="{{$radar->basic_url}}">
+                                    <label for="name" class="col-form-label">@lang('satellites.name')</label>
+                                    <input type="text" name="name" class="form-control" value="{{$satellite->name}}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="url_call" class="col-form-label">@lang('radars.url_call')</label>
-                                    <input type="text" name="url_call" class="form-control" value="{{$radar->url_call}}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="time_format" class="col-form-label">@lang('radars.time_format')</label>
-                                    <input type="text" name="time_format" class="form-control" placeholder="Y-m-d H:i:s" value="{{$radar->time_format}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sprint_digits" class="col-form-label">@lang('radars.sprint_digits')</label>
-                                    <input type="text" name="sprint_digits" class="form-control" placeholder="001"  value="{{$radar->sprint_digits}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="time_interval" class="col-form-label">@lang('radars.time_interval')</label>
-                                    <input type="number" name="time_interval" class="form-control" value="{{$radar->time_interval}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="time_limits" class="col-form-label">@lang('radars.time_limits')</label>
-                                    <input type="number" name="time_limits" class="form-control" value="{{$radar->time_limits}}">
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label class="col-form-label" for="customFile">@lang('news.image')</label>
-                                    <input type="file" name="image" onchange="readURL(this)" class="form-control" id="customFile">
-                                </div>
-
-                                <div class="form-group col-sm-6 mt-4">
-                                    <div class="image">
-                                        <img src="{{url('images/radars').'/'.$radar->image}}" width="200" height="180" alt="">
-                                    </div>
+                                    <label for="basic_url" class="col-form-label">@lang('satellites.frame_url')</label>
+                                    <input type="text" name="frame_url" class="form-control" value="{{$satellite->frame_url}}">
                                 </div>
                                 <div class="col-sm-12 text-center pl-0 mt-3" style="float: right;">
                                     <button type="submit" class="btn btn-space btn-primary col-sm-4">@lang('main.edit')</button>

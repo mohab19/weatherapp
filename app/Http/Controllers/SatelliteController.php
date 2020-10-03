@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Satellite;
+use App\Http\Requests\SatelliteRequest;
 use Illuminate\Http\Request;
+use App\Satellite;
 
 class SatelliteController extends Controller
 {
@@ -12,9 +13,10 @@ class SatelliteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($lang)
     {
-        //
+        $satellites = Satellite::all();
+        return view('satellites.index', compact('satellites'));
     }
 
     /**
@@ -22,9 +24,9 @@ class SatelliteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($lang)
     {
-        //
+        return view('satellites.create');
     }
 
     /**
@@ -33,9 +35,9 @@ class SatelliteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($lang, SatelliteRequest $request)
     {
-        //
+        $satellite = Satellite::create($request->all());
     }
 
     /**
@@ -44,7 +46,7 @@ class SatelliteController extends Controller
      * @param  \App\Satellite  $satellite
      * @return \Illuminate\Http\Response
      */
-    public function show(Satellite $satellite)
+    public function show($lang, Satellite $satellite)
     {
         //
     }
@@ -55,9 +57,9 @@ class SatelliteController extends Controller
      * @param  \App\Satellite  $satellite
      * @return \Illuminate\Http\Response
      */
-    public function edit(Satellite $satellite)
+    public function edit($lang, Satellite $satellite)
     {
-        //
+        return view('satellites.edit', compact('satellite'));
     }
 
     /**
@@ -67,9 +69,9 @@ class SatelliteController extends Controller
      * @param  \App\Satellite  $satellite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Satellite $satellite)
+    public function update($lang, SatelliteRequest $request, Satellite $satellite)
     {
-        //
+        $satellite->update($request->all());
     }
 
     /**
@@ -78,8 +80,13 @@ class SatelliteController extends Controller
      * @param  \App\Satellite  $satellite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Satellite $satellite)
+    public function destroy($lang, Satellite $satellite)
     {
-        //
+        $satellite->destroy();
+    }
+
+    public function satellite($lang, Satellite $satellite)
+    {
+        return view('satellites.satellite', compact('satellite'));
     }
 }

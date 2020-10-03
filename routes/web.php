@@ -28,6 +28,7 @@ Route::group(['prefix' => '{language?}'], function () {
 
     Route::get('/side', 'HomeController@side');
     Route::get('/radar/{radar}', 'RadarController@radars');
+    Route::get('/satellite/{satellite}', 'SatelliteController@satellite');
     Route::group(['middleware' => ['auth:admin']], function () {
         /*** home page admin route ***/
         Route::get('/admin', 'AdminController@index')->name('admin');

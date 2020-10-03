@@ -22,6 +22,9 @@
                     <a class="nav-link" href="{{route('types.index', app()->getLocale())}}"><i class="far fa-file-alt"></i> @lang('main.types')</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('satellites.index', app()->getLocale())}}"><i class="far fa-file"></i> @lang('satellites.satellites')</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('news.index', app()->getLocale())}}"><i class="fas fa-newspaper"></i> @lang('main.news')</a>
                 </li>
                 @endauth
