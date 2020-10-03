@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{URL('assets/vendor/datatables/css/fixedHeader.bootstrap4.css')}}">
 @endsection
 @section('title')
-    <title>@lang('categories.categories')</title>
+    <title>@lang('radars.radars')</title>
 @endsection
 @section('content')
 <div class="container-fluid dashboard-content">
@@ -16,10 +16,10 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h1 class="page-title">@lang('categories.categories')
+                <h1 class="page-title">@lang('radars.radars')
                     <small>@lang('main.view')</small>
                 </h1>
-                <a href="{{ URL( app()->getLocale() . '/admin/categories/create') }}" class="btn btn-primary" id="sample_editable_1_new" style="float: right;">@lang('main.add_new')
+                <a href="{{ URL( app()->getLocale() . '/admin/radars/create') }}" class="btn btn-primary" id="sample_editable_1_new" style="float: right;">@lang('main.add_new')
                     <i class="fa fa-plus"></i>
                 </a>
                 <div class="page-breadcrumb">
@@ -28,7 +28,7 @@
                             <li class="breadcrumb-item">
                                 <a href="{{URL( app()->getLocale() . '/admin')}}" class="breadcrumb-link">@lang('main.dashboard')</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page"><span>@lang('categories.categories')</span></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>@lang('radars.radars')</span></li>
                         </ol>
                     </nav>
                 </div>
@@ -57,29 +57,29 @@
                                     <thead>
                                         <tr>
                                             <th>{{ Lang::get('main.id') }}</th>
-                                            <th>{{ Lang::get('categories.name') }}</th>
-                                            <th>{{ Lang::get('categories.url_call') }}</th>
-                                            <th>{{ Lang::get('categories.time_format') }}</th>
-                                            <th>{{ Lang::get('categories.time_interval') }}</th>
+                                            <th>{{ Lang::get('radars.name') }}</th>
+                                            <th>{{ Lang::get('radars.url_call') }}</th>
+                                            <th>{{ Lang::get('radars.time_format') }}</th>
+                                            <th>{{ Lang::get('radars.time_interval') }}</th>
                                             <th>{{ Lang::get('main.action') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($categories as $key => $category)
-                                            <tr class="delete_{{$category->id}}">
-                                                <td>{{$category->id}}</td>
-                                                <td>{{$category['name']}}</td>
-                                                <td>{{$category['url_call']}}</td>
-                                                <td>{{$category['time_format']}}</td>
-                                                <td>{{$category['time_interval']}}</td>
+                                        @foreach($radars as $key => $radar)
+                                            <tr class="delete_{{$radar->id}}">
+                                                <td>{{$radar->id}}</td>
+                                                <td>{{$radar['name']}}</td>
+                                                <td>{{$radar['url_call']}}</td>
+                                                <td>{{$radar['time_format']}}</td>
+                                                <td>{{$radar['time_interval']}}</td>
                                                 <td class="@if(Lang::locale() == 'ar') text-left @else text-right @endif">
-                                                    <a class="btn btn-primary" href="{{URL( app()->getLocale() . '/admin/categories/' . $category->id)}}" style="padding: 5px 10px;">
+                                                    <a class="btn btn-primary" href="{{URL( app()->getLocale() . '/admin/radars/' . $radar->id)}}" style="padding: 5px 10px;">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a class="btn btn-success" href="{{URL( app()->getLocale() . '/admin/categories/' . $category->id . '/edit')}}" style="padding: 5px 10px;">
+                                                    <a class="btn btn-success" href="{{URL( app()->getLocale() . '/admin/radars/' . $radar->id . '/edit')}}" style="padding: 5px 10px;">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <span class="delete_this btn btn-danger" data-id="{{$category->id}}" data-type="Category" data-url="categories" style="padding: 5px 10px;">
+                                                    <span class="delete_this btn btn-danger" data-id="{{$radar->id}}" data-type="Radar" data-url="radars" style="padding: 5px 10px;">
                                                         <i class="fas fa-trash"></i>
                                                     </span>
                                                 </td>
@@ -89,10 +89,10 @@
                                     <tfoot>
                                         <tr>
                                             <th>{{ Lang::get('main.id') }}</th>
-                                            <th>{{ Lang::get('categories.name') }}</th>
-                                            <th>{{ Lang::get('categories.url_call') }}</th>
-                                            <th>{{ Lang::get('categories.time_format') }}</th>
-                                            <th>{{ Lang::get('categories.time_interval') }}</th>
+                                            <th>{{ Lang::get('radars.name') }}</th>
+                                            <th>{{ Lang::get('radars.url_call') }}</th>
+                                            <th>{{ Lang::get('radars.time_format') }}</th>
+                                            <th>{{ Lang::get('radars.time_interval') }}</th>
                                             <th>{{ Lang::get('main.action') }}</th>
                                         </tr>
                                     </tfoot>

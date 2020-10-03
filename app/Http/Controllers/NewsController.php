@@ -82,10 +82,9 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update($lang, NewsRequest $request, News $news) {
-
         if($request->hasFile('image')) {
             $imageName = time().'_'.$request->input('name').'.'.$request->file('image')->getClientOriginalExtension();
-            request()->image->move(public_path('images/uploaded'), $imageName);
+            request()->image->move(public_path('images/news'), $imageName);
         } else {
             $imageName = $news->image;
         }

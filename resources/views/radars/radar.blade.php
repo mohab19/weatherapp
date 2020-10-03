@@ -7,26 +7,28 @@
 <div class="satellite">
     <div class="container">
         <div class="sat-map text-center">
-            <h2>@lang('categories.forecasting') {{$category->name}}</h2>
+            <h2>@lang('radars.forecasting') {{$radar->name}}</h2>
             <!--next & prev button-->
             <div class="">
                 <div id="loading" style="visibility: hidden;">
                     <div id="loading_1" class="loading"></div>
                 </div>
                 <div class="buttons-toward d-flex">
-                    <button type="button" id="still">@lang('categories.still')</button>
+                    <button type="button" id="still">@lang('radars.still')</button>
 
-                    <button type="button" id="animate">@lang('categories.animated')</button>
+                    <button type="button" id="animate">@lang('radars.animated')</button>
                 </div>
                 <div id="s" style="display: none;"></div>
                 <div id="all">
-                    @if($category->Types)
+                    @if($radar->Types)
                     <div>
                         <select class="form-control" style="width:100%;height:29.6;direction:rtl;" id="script">
-                            @foreach($category->Types as $key => $type)
+                            @foreach($radar->Types as $key => $type)
                             @php
                             $trans      = array(
                                 "{date('Y/m/d/')}" => date("Y/m/d/"),
+                                "{date('Ymd')}"    => date("Ymd"),
+                                "{-date('Ymd')}"   => date("Ymd", strtotime('-1 day')),
                                 "{+1}"             => ($key+1)*1,
                                 "{+6}"             => sprintf('%02d', ($key+1)*6),
                             );
@@ -38,17 +40,26 @@
                     @endif
                     <div class="buttons-toward d-flex">
                         <div>
-                            <button type="button" id="down">@lang('categories.previous')</button>
+                            <button type="button" id="down">@lang('radars.previous')</button>
                         </div>
                         <div>
                             <select class="form-control" id="hours">
-                                @for($i = 1; ($i*$category->time_interval) <= ($category->time_limits*24); $i++)
-                                <option value="{{sprintf('%02d', ($i*($category->time_interval)))}}{{$category->url_call}}">+{{$i*$category->time_interval}} @lang('categories.hours')</option>
+                                @for($i = 1; ($i*$radar->time_interval) <= ($radar->time_limits*24); $i++)
+                                @php
+                                $trans      = array(
+                                    "{date('Y/m/d/')}" => date("Y/m/d/"),
+                                    "{date('Ymd')}"    => date("Ymd"),
+                                    "{-date('Ymd')}"   => date("Ymd", strtotime('-1 day')),
+                                    "{+1}"             => ($i+1)*1,
+                                    "{+6}"             => sprintf('%02d', ($i+1)*6),
+                                );
+                                @endphp
+                                <option value="{{sprintf($radar->sprint_digits, ($i*($radar->time_interval)))}}{{strtr($radar->url_call, $trans)}}">+{{$i*$radar->time_interval}} @lang('radars.hours')</option>
                                 @endfor
                             </select>
                         </div>
                         <div>
-                            <button type="button" id="up">@lang('categories.next')</button>
+                            <button type="button" id="up">@lang('radars.next')</button>
                         </div>
                     </div>
                 </div>
@@ -56,13 +67,14 @@
             <!---map-->
             <section class="map">
                 <div class="map-base">
-                    <img id="img" src="" alt="map" onload="hideloading()">
+                    <img id="img" src="" alt="map">
                 </div>
                 <div class="map-cities">
-                    <img id="map2" src="{{asset('img/forcasting/overlayermap.png')}}" alt="map" class="hide">
+                    <img id="city_map" src="{{asset('img/forcasting/overlayermap.png')}}" alt="map" class="hide">
                 </div>
                 <!--button hide cities-->
-                <button style="height:25;width:40%" id="bt1" onclick="setVisibility('hide');change();" type="button" value="إخفاء الخريطة">إخفاء أسماء المدن</button>
+                <button style="height:25;width:40%" id="hide_city_map" type="button">@lang('radars.hide_cities')</button>
+                <button style="height:25;width:40%;display: none;" id="show_city_map" type="button">@lang('radars.show_cities')</button>
             </section>
         </div>
     </div>

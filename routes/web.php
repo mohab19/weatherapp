@@ -21,14 +21,13 @@ Route::group(['prefix' => '{language?}'], function () {
     Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin-login');
     Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin-login.submit');
     Route::get('/', 'HomeController@index')->name('home');
-    Route::post('/get_location', 'HomeController@getLocation');
     Route::get('/choose_location/{city}', 'HomeController@index');
     Route::get('/search_city/{city}', 'HomeController@searchCity');
     Route::get('/climate', 'ClimateController@index');
     Route::get('/news', 'NewsController@index');
-    Route::get('/radar', 'RadarController@index');
+
     Route::get('/side', 'HomeController@side');
-    Route::get('/category/{category}', 'CategoryController@categories');
+    Route::get('/radar/{radar}', 'RadarController@radars');
     Route::group(['middleware' => ['auth:admin']], function () {
         /*** home page admin route ***/
         Route::get('/admin', 'AdminController@index')->name('admin');
@@ -38,8 +37,9 @@ Route::group(['prefix' => '{language?}'], function () {
             Route::post('users_search', ['uses' => 'UserController@search', 'as' => 'users_view']);
             Route::get('users/activation/{user}','UserController@activation');
             /*** System routes ***/
-            Route::resource('categories', 'CategoryController');
+            Route::resource('radars', 'RadarController');
             Route::resource('types', 'TypeController');
+            Route::resource('satellites', 'SatelliteController');
             Route::resource('news', 'NewsController');
         });
     });

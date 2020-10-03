@@ -353,7 +353,7 @@ return [
     'categories_active' => 'Active',
     'categories_view' => 'View',
     'category' => 'Article Category',
-
+    'radars'  => 'Radars',
     'testimonials' => 'Testimonials',
     'testimonial' => 'Testimonial',
     'testimonials_add' => 'Add',

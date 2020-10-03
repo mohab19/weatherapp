@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'categories'         => 'Categories',
+    'radars'             => 'Radars',
     'add_new'            => 'Add New Category',
     'edit'               => 'Edit Category',
     'name'               => 'Name',
@@ -16,5 +16,8 @@ return [
     'forecasting'        => 'Rain Forecasting from ',
     'basic_url'          => 'Baic URL',
     'time_limits'        => 'Time limits',
-    'second_time_format' => 'Second time format',
+    'sprint_digits'      => 'Sprint Digits',
+    'hide_cities'        => 'Hide Cities Names',
+    'show_cities'        => 'Show Cities Names',
+
 ];

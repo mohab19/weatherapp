@@ -48,10 +48,10 @@
                                 @csrf
                                 <input type="hidden" id="route" value="{{route('types.store',  app()->getLocale())}}">
                                 <input type="hidden" id="form_name" value="Type" data-id="types">
-                                <select name="category_id" id="type_categories"  class="form-control" required>
-                                    <option value="0" disabled selected>Select Category: </option>
-                                    @foreach($categories as $key => $category)
-                                    <option value="{{$category->id}}">{{$category['name']}}</option>
+                                <select name="radar_id" id="type_radars"  class="form-control" required>
+                                    <option value="0" disabled selected>Select radar: </option>
+                                    @foreach($radars as $key => $radar)
+                                    <option value="{{$radar->id}}">{{$radar['name']}}</option>
                                     @endforeach
                                 </select>
                                 <div class="form-group">

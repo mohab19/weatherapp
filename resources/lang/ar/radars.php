@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'categories'         => 'أقسام',
+    'Radars'             => 'رادارات',
     'add_new'            => 'أضف قسم جديد',
     'edit'               => 'تعديل قسم',
     'name'               => 'الاسـم',
@@ -16,6 +16,8 @@ return [
     'forecasting'        => 'توقعات الأمطار من ',
     'basic_url'          => 'الرابط الاساسي',
     'time_limits'        => 'الحد الزمني',
-    'second_time_format' => 'صيغة الوقت الثانية',
+    'sprint_digits'      => 'عدد الخانات',
+    'hide_cities'        => 'اخفاء أسماء المدن',
+    'show_cities'        => 'إظهار أسماء المدن',
 
 ];

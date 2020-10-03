@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\TypeRequest;
 use Illuminate\Http\Request;
-use App\Category;
+use App\Radar;
 use App\Type;
 
 class TypeController extends Controller
@@ -26,8 +26,8 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $categories = Category::all();
-        return view('types.create', compact('categories'));
+        $radars = Radar::all();
+        return view('types.create', compact('radars'));
     }
 
     /**
@@ -57,8 +57,8 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($lang, Type $type) {
-        $categories = Category::all();
-        return view('types.edit', compact('type', 'categories'));
+        $radars = Radar::all();
+        return view('types.edit', compact('type', 'radars'));
     }
 
     /**
@@ -88,7 +88,7 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getTypes($id) {
-        $types = Type::where('category_id', $id)->get();
+        $types = Type::where('radar_id', $id)->get();
         return $types;
     }
 }

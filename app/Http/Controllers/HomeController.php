@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Radar;
 use App\City;
 use App\News;
 
@@ -75,10 +75,7 @@ class HomeController extends Controller
             return \Response::json(['status' => 200, 'view' => $view]);
         }*/
 
-        $cities     = City::all();
-        $news       = News::all();
-        $categories = Category::all();
-        return view('home', compact('cities', 'categories', 'news'));
+        return view('home');
     }
 
     public function getLocation($lang, Request $request)

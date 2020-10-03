@@ -16,7 +16,7 @@
                     <a class="nav-link" href="{{route('users.index', app()->getLocale())}}"><i class="fas fa-fw fa-user"></i>@lang('main.users')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('categories.index', app()->getLocale())}}"><i class="fas fa-cubes"></i> @lang('main.categories')</a>
+                    <a class="nav-link" href="{{route('radars.index', app()->getLocale())}}"><i class="fas fa-cubes"></i> @lang('main.radars')</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('types.index', app()->getLocale())}}"><i class="far fa-file-alt"></i> @lang('main.types')</a>

@@ -48,26 +48,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="sat.html">@lang('home.satellite')</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sat.html">@lang('home.radar')</a>
+                <li class="nav-item dropdown dmenu">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        @lang('home.radar')
+                    </a>
+                    <div class="dropdown-menu sm-menu">
+                        @foreach($radars as $key => $radar)
+                        <a class="dropdown-item @if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif" href="{{url('radar/'.$radar->id)}}">{{$radar->name}}</a>
+                        @endforeach
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="sat.html">@lang('home.your_news')</a>
                 </li>
-                <!--<li class="nav-item dropdown dmenu">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Specialists & Amateurs
-                    </a>
-                    <div class="dropdown-menu sm-menu">
-                        <a class="dropdown-item" href="#">Bader System</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Weather Stations</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Elevation of Your area</a>
-                        <hr>
-                        <a class="dropdown-item" href="#">Earthquake Observatory</a>
-                    </div>
-                </li>-->
             </ul>
         </div>
     </div>

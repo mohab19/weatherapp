@@ -38,68 +38,18 @@ end main -->
 <section class="radar">
     <div class="container-fluid">
         <div class="row text-center">
-            <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/models/foreca')}}">
+            @foreach($RNRadars as $key => $radar)
+            <div class="col-md-3 @if($key < 4 && $key%2 == 0) grey @elseif($key > 4 && $key%2 != 0) grey @endif">
+                <a href="{{url(app()->getLocale() . '/radar/'.$radar->id)}}">
                     <div class="radar-ex">
-                        <img src="img/Foreca.png" alt="foreca-logo">
-                        <h4>foreca</h4>
+                        @if(isset($radar->image))
+                        <img src="{{asset('images/radars'.'/'.$radar->image)}}" alt="{{$radar->name}}">
+                        @endif
+                        <h4>{{strtoupper($radar->name)}}</h4>
                     </div>
                 </a>
             </div>
-            <div class="col-md-3">
-                <a href="{{url(app()->getLocale() . '/category/5')}}">
-                    <div class="radar-ex">
-                        <h4>Canadian GEM</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/category/6')}}">
-                    <div class="radar-ex">
-                        <h4>Ocean View</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="{{url(app()->getLocale() . '/category/2')}}">
-                    <div class="radar-ex">
-                        <img src="img/cola.gif" alt="BBC-logo">
-                        <h4>cola</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="{{url(app()->getLocale() . '/category/3')}}">
-                    <div class="radar-ex">
-                        <img src="{{asset('img/meteopool.png')}}" alt="wetter-logo">
-                        <h4>Meteopool</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/category/4')}}">
-                    <div class="">
-                        <img src="img/jetplan.gif" alt="ucar-logo">
-                        <h4>Jetplan</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 ">
-                <a href="{{url(app()->getLocale() . '/side')}}">
-                    <div class="radar-ex">
-                        <img src="img/noaa.png" alt="noaa-logo">
-                        <h4>noaa</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 grey">
-                <a href="{{url(app()->getLocale() . '/category/1')}}">
-                    <div class="radar-ex">
-                        <img src="img/meteostar.png" alt="meteo-logo">
-                        <h4>meteo star</h4>
-                    </div>
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

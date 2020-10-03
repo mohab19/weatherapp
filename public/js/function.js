@@ -34,4 +34,17 @@ $(document).ready(function () {
             }, 1000);
         }
     });
+
+    $('#hide_city_map').on('click', function() {
+        $('#city_map').hide(200);
+        $('#hide_city_map').hide(300);
+        $('#show_city_map').show(300);
+    });
+
+    $('#show_city_map').on('click', function() {
+        $('#city_map').show(300);
+        $('#show_city_map').hide(300);
+        $('#hide_city_map').show(300);
+    });
+
 });
