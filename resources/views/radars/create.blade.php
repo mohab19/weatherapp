@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{URL('assets/vendor/datatables/css/fixedHeader.bootstrap4.css')}}">
 @endsection
 @section('title')
-    <title>@lang('categories.categories')</title>
+    <title>@lang('radars.radars')</title>
 @endsection
 @section('content')
 <div class="container-fluid dashboard-content">
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h1 class="page-title">@lang('categories.categories')
+                <h1 class="page-title">@lang('radars.radars')
                     <small>@lang('main.create')</small>
                 </h1>
                 <div class="page-breadcrumb">
@@ -25,7 +25,7 @@
                             <li class="breadcrumb-item">
                                 <a href="{{URL( app()->getLocale() . '/admin')}}" class="breadcrumb-link">@lang('main.dashboard')</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page"><span>@lang('categories.categories')</span></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>@lang('radars.radars')</span></li>
                         </ol>
                     </nav>
                 </div>
@@ -43,7 +43,7 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">@lang('categories.add_new')</h5>
+                        <h5 class="card-header">@lang('radars.add_new')</h5>
                         <div class="card-body">
                             <div class="alert alert-dismissible" id="notification" style="display: none;">
                                 <ul style="margin-bottom: 0;">
@@ -52,34 +52,34 @@
                             </div>
                             <form id="form">
                                 @csrf
-                                <input type="hidden" id="form_name" value="Category" data-id="categories">
-                                <input type="hidden" id="route" value="{{route('categories.store', app()->getLocale())}}">
+                                <input type="hidden" id="form_name" value="Radar" data-id="radars">
+                                <input type="hidden" id="route" value="{{route('radars.store', app()->getLocale())}}">
                                 <div class="form-group">
-                                    <label for="name" class="col-form-label">@lang('categories.name')</label>
+                                    <label for="name" class="col-form-label">@lang('radars.name')</label>
                                     <input type="text" name="name" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="basic_url" class="col-form-label">@lang('categories.basic_url')</label>
+                                    <label for="basic_url" class="col-form-label">@lang('radars.basic_url')</label>
                                     <input type="text" name="basic_url" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="url_call" class="col-form-label">@lang('categories.url_call')</label>
+                                    <label for="url_call" class="col-form-label">@lang('radars.url_call')</label>
                                     <input type="text" name="url_call" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="time_format" class="col-form-label">@lang('categories.time_format')</label>
+                                    <label for="time_format" class="col-form-label">@lang('radars.time_format')</label>
                                     <input type="text" name="time_format" class="form-control" placeholder="Y-m-d H:i:s">
                                 </div>
                                 <div class="form-group">
-                                    <label for="sprint_digits" class="col-form-label">@lang('categories.sprint_digits')</label>
+                                    <label for="sprint_digits" class="col-form-label">@lang('radars.sprint_digits')</label>
                                     <input type="text" name="sprint_digits" class="form-control" placeholder="001">
                                 </div>
                                 <div class="form-group">
-                                    <label for="time_interval" class="col-form-label">@lang('categories.time_interval')</label>
+                                    <label for="time_interval" class="col-form-label">@lang('radars.time_interval')</label>
                                     <input type="number" name="time_interval" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="time_limits" class="col-form-label">@lang('categories.time_limits')</label>
+                                    <label for="time_limits" class="col-form-label">@lang('radars.time_limits')</label>
                                     <input type="number" name="time_limits" class="form-control">
                                 </div>
                                 <div class="form-group col-sm-6">

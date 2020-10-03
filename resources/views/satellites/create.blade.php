@@ -52,7 +52,7 @@
                             </div>
                             <form id="form">
                                 @csrf
-                                <input type="hidden" id="form_name" value="Satelite" data-id="satellites">
+                                <input type="hidden" id="form_name" value="Satellite" data-id="satellites">
                                 <input type="hidden" id="route" value="{{route('satellites.store', app()->getLocale())}}">
                                 <div class="form-group">
                                     <label for="name" class="col-form-label">@lang('satellites.name')</label>

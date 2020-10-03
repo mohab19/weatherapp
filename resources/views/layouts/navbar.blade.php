@@ -45,8 +45,15 @@
                 <li class="nav-item ">
                     <a class="nav-link d-flex align-items-center" href="{{url('/').'/'}}@lang('home.lng')"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sat.html">@lang('home.satellite')</a>
+                <li class="nav-item dropdown dmenu">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        @lang('home.satellite')
+                    </a>
+                    <div class="dropdown-menu sm-menu">
+                        @foreach($satellites as $key => $satellite)
+                        <a class="dropdown-item @if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif" href="{{url(app()->getLocale().'/satellite/'.$satellite->id)}}"> {{$satellite->name}}</a>
+                        @endforeach
+                    </div>
                 </li>
                 <li class="nav-item dropdown dmenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -54,7 +61,7 @@
                     </a>
                     <div class="dropdown-menu sm-menu">
                         @foreach($radars as $key => $radar)
-                        <a class="dropdown-item @if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif" href="{{url('radar/'.$radar->id)}}">{{$radar->name}}</a>
+                        <a class="dropdown-item @if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif" href="{{url(app()->getLocale().'/radar/'.$radar->id)}}">{{$radar->name}}</a>
                         @endforeach
                     </div>
                 </li>

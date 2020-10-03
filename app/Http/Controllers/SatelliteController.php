@@ -80,7 +80,7 @@ class SatelliteController extends Controller
      * @param  \App\Satellite  $satellite
      * @return \Illuminate\Http\Response
      */
-    public function destroy($lang, Satellite $satellite)
+    public function destroy(Satellite $satellite)
     {
         $satellite->destroy();
     }
