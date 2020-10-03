@@ -29,7 +29,11 @@
                 </div>
             </div>
             <span class="login d-flex align-items-center">
+                @if(auth()->user())
+                <span>{{auth()->user()->name}}</span>
+                @else
                 <a href="{{route('login', app()->getLocale())}}"><i class="fas fa-user"></i><b class="@if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif"> @lang('home.login') </b></a>
+                @endif
             </span>
             <i class="fas fa-bars navbar-toggler" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"></i>
         </div>

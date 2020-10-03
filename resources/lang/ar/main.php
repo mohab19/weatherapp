@@ -1,5 +1,7 @@
 <?php
 return [
+    'signin'  => 'تسجيل الدخول',
+    'signup'  => 'تسجيل جديد',
     'login_page_title' => 'User Login',
     'home_page_title' => 'Dashboard',
     'token_users_title' => 'Token-users',
