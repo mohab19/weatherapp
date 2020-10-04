@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var lang = $('meta[name="locale"]').attr('content');
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showLocation);
+        //navigator.geolocation.getCurrentPosition(showLocation);
     } else {
         $('#location').html('Geolocation is not supported by this browser.');
     }
@@ -49,25 +49,25 @@ $(document).ready(function () {
     });
 });
 
-function showLocation(position) {
-    var lang      = $('meta[name="locale"]').attr('content');
-    var token     = $('meta[name="csrf-token"]').attr('content');
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    $.ajax({
-        type:'POST',
-        url: lang+'/get_location',
-        data: {
-            _token: token,
-            latitude : latitude,
-            longitude: longitude
-        },
-        success:function($response){
-            if($response) {
-               $("#location").html($response);
-            } else {
-                $("#location").html('Not Available !');
-            }
-        }
-    });
-}
+// function showLocation(position) {
+//     var lang      = $('meta[name="locale"]').attr('content');
+//     var token     = $('meta[name="csrf-token"]').attr('content');
+//     var latitude  = position.coords.latitude;
+//     var longitude = position.coords.longitude;
+//     $.ajax({
+//         type:'POST',
+//         url: lang+'/get_location',
+//         data: {
+//             _token: token,
+//             latitude : latitude,
+//             longitude: longitude
+//         },
+//         success:function($response){
+//             if($response) {
+//                $("#location").html($response);
+//             } else {
+//                 $("#location").html('Not Available !');
+//             }
+//         }
+//     });
+// }

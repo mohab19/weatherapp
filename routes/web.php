@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'ar');
 
+
 Route::group(['prefix' => '{language?}'], function () {
+    Route::get('/get_settings', 'SettingsController@getSettings');
     Auth::routes();
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
     Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin-login');
@@ -42,6 +44,7 @@ Route::group(['prefix' => '{language?}'], function () {
             Route::resource('types', 'TypeController');
             Route::resource('satellites', 'SatelliteController');
             Route::resource('news', 'NewsController');
+            Route::resource('settings', 'SettingsController');
         });
     });
 });

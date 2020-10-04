@@ -48,8 +48,6 @@
                                             <th>@lang('users.id')</th>
                                             <th>@lang('users.name')</th>
                                             <th>@lang('users.email')</th>
-                                            <th>@lang('users.mobile')</th>
-                                            <th>@lang('users.salary')</th>
                                             <th>@lang('users.action')</th>
                                         </tr>
                                     </thead>
@@ -58,8 +56,6 @@
                                             <tr class="delete_{{$user->id}}">
                                                 <td>{{$user->id}}</td>
                                                 <td>{{$user->name}}</td>
-                                                <td>{{$user->email}}</td>
-                                                <td>{{$user->mobile}}</td>
                                                 <td>{{$user->salary}}</td>
                                                 <td>
                                                     <a class="btn btn-success" href="{{ URL( app()->getLocale() . '/admin/users/' . $user->id . '/edit')}}" style="padding: 5px 10px;">
@@ -77,8 +73,6 @@
                                             <th>@lang('users.id')</th>
                                             <th>@lang('users.name')</th>
                                             <th>@lang('users.email')</th>
-                                            <th>@lang('users.mobile')</th>
-                                            <th>@lang('users.salary')</th>
                                             <th>@lang('users.action')</th>
                                         </tr>
                                     </tfoot>

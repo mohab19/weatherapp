@@ -63,16 +63,8 @@
                             <input type="text" name="name" class="form-control" value="{{$user->name}}" required>
                         </div>
                         <div class="form-group">
-                            <label for="mobile" class="col-form-label">@lang('users.mobile')</label>
-                            <input type="text" name="mobile" class="form-control" value="{{$user->mobile}}" required>
-                        </div>
-                        <div class="form-group">
                             <label for="email" class="col-form-label">@lang('users.email')</label>
                             <input type="email" name="email" class="form-control" value="{{$user->email}}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="salary" class="col-form-label">@lang('users.salary')</label>
-                            <input type="number" name="salary" class="form-control"  value="{{$user->salary}}" required>
                         </div>
                         <div class="form-group">
                             <label class="col-form-label" for="password">{{ Lang::get('main.password') }}  <span class="required"> * </span></label>

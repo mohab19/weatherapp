@@ -16,16 +16,19 @@
                     <a class="nav-link" href="{{route('users.index', app()->getLocale())}}"><i class="fas fa-fw fa-user"></i>@lang('main.users')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('radars.index', app()->getLocale())}}"><i class="fas fa-cubes"></i> @lang('main.radars')</a>
+                    <a class="nav-link" href="{{route('radars.index', app()->getLocale())}}"><i class="fas fa-satellite"></i> @lang('main.radars')</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('types.index', app()->getLocale())}}"><i class="far fa-file-alt"></i> @lang('main.types')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('satellites.index', app()->getLocale())}}"><i class="far fa-file"></i> @lang('satellites.satellites')</a>
+                    <a class="nav-link" href="{{route('satellites.index', app()->getLocale())}}"><i class="far fa-hard-hat"></i> @lang('satellites.satellites')</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('news.index', app()->getLocale())}}"><i class="fas fa-newspaper"></i> @lang('main.news')</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('settings.index', app()->getLocale())}}"><i class="fas fa-cogs"></i> @lang('settings.settings')</a>
                 </li>
                 @endauth
             </ul>
