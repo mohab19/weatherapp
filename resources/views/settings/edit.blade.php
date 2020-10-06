@@ -53,7 +53,7 @@
                             <form id="form">
                                 @csrf
                                 @method('PUT')
-                                <input type="hidden" id="form_name" value="Satellite" data-id="satellites">
+                                <input type="hidden" id="form_name" value="Settings" data-id="settings">
                                 <input type="hidden" name="url" id="route" value="{{route('settings.update', [ app()->getLocale(), $settings->id])}}">
                                 <div class="form-group">
                                     <label for="title_ar" class="col-form-label">@lang('settings.title_ar')</label>
@@ -69,11 +69,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name" class="col-form-label">@lang('settings.name')</label>
-                                    <input type="text" name="name" class="form-control" value="{{$settings->name}}" required>
+                                    <input type="text" name="name" class="form-control" value="{{$settings->name}}" required disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="value" class="col-form-label">@lang('settings.value')</label>
                                     <input type="text" name="value" class="form-control" value="{{$settings->value}}" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label class="col-form-label" for="customFile">@lang('news.image')</label>
+                                    <input type="file" name="image" onchange="readURL(this)" class="form-control" id="customFile">
+                                </div>
+
+                                <div class="form-group col-sm-6 mt-4">
+                                    <div class="image">
+                                        <img src="{{url('images/settings').'/'.$settings->image}}" width="200" height="180" alt="">
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-12 text-center pl-0 mt-3" style="float: right;">

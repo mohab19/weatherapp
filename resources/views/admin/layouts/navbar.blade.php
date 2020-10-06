@@ -35,7 +35,7 @@
                         <h5 class="mb-0 text-white nav-user-name">{{auth()->user()->name}}</h5>
                         <span class="status"></span><span class="ml-2">@lang('main.available')</span>
                     </div>
-                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>@lang('main.settings')</a>
+                    <a class="dropdown-item" href="{{url(app()->getLocale() .'/admin/admins/'.auth()->user()->id)}}"><i class="fas fa-cog mr-2"></i>@lang('main.settings')</a>
                     <a class="dropdown-item" href="{{route('logout', app()->getLocale())}}"><i class="fas fa-power-off mr-2"></i>@lang('main.logout')</a>
                 </div>
             </li>

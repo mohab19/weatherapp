@@ -10,13 +10,13 @@
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
-    @stack('styles')
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/media.css')}}">
     @if(app()->getLocale() == 'ar')
     <link rel="stylesheet" href="{{ asset('css/bootstrapAr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleAr.css') }}">
     @endif
+    @stack('styles')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>

@@ -83,6 +83,10 @@
                                     <label for="time_limits" class="col-form-label">@lang('radars.time_limits')</label>
                                     <input type="number" name="time_limits" class="form-control" value="{{$radar->time_limits}}">
                                 </div>
+                                <div class="form-group">
+                                    <label for="start_from" class="col-form-label">@lang('radars.start_from')</label>
+                                    <input type="number" name="start_from" class="form-control" value="{{$radar->start_from}}">
+                                </div>
                                 <div class="form-group col-sm-6">
                                     <label class="col-form-label" for="customFile">@lang('news.image')</label>
                                     <input type="file" name="image" onchange="readURL(this)" class="form-control" id="customFile">

@@ -37,7 +37,21 @@ class SettingsController extends Controller
      */
     public function store($lang, SettingsRequest $request)
     {
-        $setting = Settings::create($request->all());
+        if($request->image) {
+            $imageName = time().'_'.$request->input('writer').'.'.$request->file('image')->getClientOriginalExtension();
+            request()->image->move(public_path('images/settings'), $imageName);
+        } else {
+            $imageName = "";
+        }
+
+        $setting = Settings::create([
+            'title_ar' => $request->title_ar,
+            'title_en' => $request->title_en,
+            'type'     => $request->type,
+            'name'     => $request->name,
+            'value'    => $request->value,
+            'image'    => $imageName
+        ]);
     }
 
     /**
@@ -57,8 +71,9 @@ class SettingsController extends Controller
      * @param  \App\Settings  $settings
      * @return \Illuminate\Http\Response
      */
-    public function edit($lang, Settings $settings)
+    public function edit($lang, $id)
     {
+        $settings = Settings::findOrFail($id);
         return view('settings.edit', compact('settings'));
     }
 
@@ -69,9 +84,25 @@ class SettingsController extends Controller
      * @param  \App\Settings  $settings
      * @return \Illuminate\Http\Response
      */
-    public function update($lang, SettingsRequest $request, Settings $settings)
+    public function update($lang, SettingsRequest $request, $id)
     {
-        $settings->update($request->all());
+        $setting = Settings::find($id);
+
+        if($request->image) {
+            $imageName = time().'_'.$request->input('writer').'.'.$request->file('image')->getClientOriginalExtension();
+            request()->image->move(public_path('images/settings'), $imageName);
+        } else {
+            $imageName = $setting->image;
+        }
+
+        $setting->update([
+            'title_ar' => $request->title_ar,
+            'title_en' => $request->title_en,
+            'type'     => $request->type,
+            'name'     => $request->name,
+            'value'    => $request->value,
+            'image'    => $imageName
+        ]);
     }
 
     /**

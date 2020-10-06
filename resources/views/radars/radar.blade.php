@@ -54,7 +54,9 @@
                                     "{+6}"             => sprintf('%02d', ($i+1)*6),
                                 );
                                 @endphp
+                                @if($i*$radar->time_interval >= $radar->start_from)
                                 <option value="{{sprintf($radar->sprint_digits, ($i*($radar->time_interval)))}}{{strtr($radar->url_call, $trans)}}">+{{$i*$radar->time_interval}} @lang('radars.hours')</option>
+                                @endif
                                 @endfor
                             </select>
                         </div>

@@ -17,6 +17,7 @@ Route::redirect('/', 'ar');
 
 
 Route::group(['prefix' => '{language?}'], function () {
+    Route::get('/news/{id}', 'NewsController@show');
     Route::get('/get_settings', 'SettingsController@getSettings');
     Auth::routes();
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -40,11 +41,12 @@ Route::group(['prefix' => '{language?}'], function () {
             Route::post('users_search', ['uses' => 'UserController@search', 'as' => 'users_view']);
             Route::get('users/activation/{user}','UserController@activation');
             /*** System routes ***/
+            Route::resource('settings', 'SettingsController');
+            Route::resource('admins', 'AdminController');
             Route::resource('radars', 'RadarController');
             Route::resource('types', 'TypeController');
             Route::resource('satellites', 'SatelliteController');
             Route::resource('news', 'NewsController');
-            Route::resource('settings', 'SettingsController');
         });
     });
 });

@@ -46,6 +46,7 @@ class RadarController extends Controller
             'sprint_digits'       => $request->sprint_digits,
             'time_interval'       => $request->time_interval,
             'time_limits'         => $request->time_limits,
+            'start_from'          => $request->start_from,
             'image'               => $imageName
         ]);
     }
@@ -93,6 +94,7 @@ class RadarController extends Controller
             'sprint_digits'       => $request->sprint_digits,
             'time_interval'       => $request->time_interval,
             'time_limits'         => $request->time_limits,
+            'start_from'          => $request->start_from,
             'image'               => $imageName
         ]);
     }

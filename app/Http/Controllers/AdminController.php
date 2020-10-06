@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
 use Illuminate\Http\Request;
+use App\Admin;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,9 @@ class AdminController extends Controller
      */
     public function index($lang)
     {
-        return view("admin.index");
+        $users = User::orderBy('created_at', 'desc')->limit(8)->get();
+        $users_count = User::count();
+        return view("admin.index", compact('users', 'users_count'));
     }
 
     /**
@@ -44,9 +47,9 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($lang, Admin $admin)
     {
-        //
+        return view("profile", compact('admin'));
     }
 
     /**
@@ -67,9 +70,20 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update($lang, Request $request, Admin $admin)
     {
-        //
+        if($request->password != null) {
+            $admin->update([
+                'name'     => $request->name,
+                'email'    => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+        } else {
+            $admin->update([
+                'name'     => $request->name,
+                'email'    => $request->email,
+            ]);
+        }
     }
 
     /**

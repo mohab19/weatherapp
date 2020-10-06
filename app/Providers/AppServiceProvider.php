@@ -33,11 +33,11 @@ class AppServiceProvider extends ServiceProvider
         $RNRadars   = Radar::all()->random(8);
         $satellites = Satellite::all();
         $settings   = Settings::all();
-
+        
         view()->share('news', $news);
         view()->share('radars', $radars);
         view()->share('RNRadars', $RNRadars);
         view()->share('satellites', $satellites);
-        view()->share('Settings', $settings);
+        view()->share('settings', $settings);
     }
 }

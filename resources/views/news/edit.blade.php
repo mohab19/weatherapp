@@ -65,10 +65,7 @@
                                     <label for="description" class="col-form-label">@lang('news.description')</label>
                                     <textarea name="description" rows="5" cols="80" class="form-control">{{$news->description}}</textarea>
                                 </div>
-                                <div class="form-group col-sm-6">
-                                    <label for="image_url" class="col-form-label">@lang('news.image_url')</label>
-                                    <input type="text" name="image_url" class="form-control" required>
-                                </div>
+
                                 <div class="form-group col-sm-6">
                                     <label class="col-form-label" for="customFile">@lang('news.image')</label>
                                     <input type="file" name="image" onchange="readURL(this)" class="form-control" id="customFile">
@@ -85,11 +82,6 @@
                                     <a href="{{url()->previous()}}"><span class="btn btn-space btn-secondary col-sm-4">@lang('main.cancel')</span></a>
                                 </div>
                             </form>
-                            <div class="row">
-                                <div class="col-md-6 image">
-                                    <img src="{{URL( app()->getLocale() . '/images/uploaded') . '/' . $news->image}}" width="200" height="180" alt="">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

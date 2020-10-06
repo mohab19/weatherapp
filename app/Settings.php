@@ -9,5 +9,5 @@ class Settings extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title_ar', 'title_en', 'type', 'name', 'value'];
+    protected $fillable = ['title_ar', 'title_en', 'type', 'name', 'value', 'image'];
 }

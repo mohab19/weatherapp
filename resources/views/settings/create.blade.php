@@ -74,6 +74,16 @@
                                     <label for="value" class="col-form-label">@lang('settings.value')</label>
                                     <input type="text" name="value" class="form-control" required>
                                 </div>
+                                <div class="form-group col-sm-6">
+                                    <label class="col-form-label" for="customFile">@lang('news.image')</label>
+                                    <input type="file" name="image" onchange="readURL(this)" class="form-control" id="customFile">
+                                </div>
+
+                                <div class="form-group col-sm-6 mt-4">
+                                    <div class="image" style="display: none;">
+                                        <img src="" width="200" height="180" alt="">
+                                    </div>
+                                </div>
                                 
                                 <div class="col-sm-12 text-center pl-0 mt-3" style="float: right;">
                                     <button type="submit" class="btn btn-space btn-primary col-sm-4">@lang('main.save')</button>

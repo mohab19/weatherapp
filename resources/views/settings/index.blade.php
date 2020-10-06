@@ -19,9 +19,9 @@
                 <h1 class="page-title">@lang('settings.settings')
                     <small>@lang('main.view')</small>
                 </h1>
-                <a href="{{ URL( app()->getLocale() . '/admin/settings/create') }}" class="btn btn-primary" id="sample_editable_1_new" style="float: right;">@lang('main.add_new')
+                <!--<a href="{{ URL( app()->getLocale() . '/admin/settings/create') }}" class="btn btn-primary" id="sample_editable_1_new" style="float: right;">@lang('main.add_new')
                     <i class="fa fa-plus"></i>
-                </a>
+                </a>-->
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">

@@ -7,7 +7,7 @@ body{font-family: 'Cairo', sans-serif;
 
 
 /*header*/
-header{background-color: #1E202B;
+header{background-color: #111111;
 padding:5px 0px;}
 
 header select{margin-left:4%;
@@ -25,14 +25,24 @@ header .text-white{font-size:14px}
 /*nav*/
 .navbar{
 background: #fff !important;
-box-shadow: 0px 1px 5px -1px rgba(50, 53, 68,.4);
+box-shadow: 0px 1px 5px -1px #f8f8f8;}
 
 
-}
+.navbar{padding:0px;}
+
+
+.navbar .nav-item{width:25%;
+padding:10px;
+transition: background-color .5s ease-in-out;}
+
+
+.navbar .nav-item:hover{background-color: #E8E8E8;}
+
+
+.dropdown-menu .ml-2 {  margin-left: 0px!important; }
 
 .logo{display: flex;
 justify-content: space-between;}
-
 
 
 .logo .fa-bars{display: none;}
@@ -50,16 +60,19 @@ justify-content: space-between;}
     border-radius:0px !important;
     box-shadow: 0px 1px 5px -1px rgba(50, 53, 68,.4);
     padding:0px;
+    width:100%;
 }
 .dropdown-item:hover{
     background:#EEEEEE;
     color:#464646;
 }
+
 .dropdown-menu a{
     color:#464646;
     font-size: 14px;
-    padding: 15px 5px;
+    padding: 15px ;
 }
+
 hr{margin-top: 0px;
     margin-bottom: 0px;}
 
@@ -69,6 +82,11 @@ a:hover{text-decoration: none;}
 
 .navbar-nav li > a {font-size: 14px;}
 
+.nav-tabs .nav-item {width:50%;}
+
+.nav-tabs .active{color: #1E202B;
+    font-weight: bold;}
+
 .navbar .nav-item .nav-link {color: #464646 !important;}
 
 nav ul{display: flex;
@@ -77,9 +95,11 @@ width:80%;}
 
 nav.small{display: none;}
 
+.logoMyImage{width:25%;}
+
 .logo-img{width:60%;}
 
-.logo-img img{width:28%}
+.logo-img img{width:35%}
 
 
 /*choose lang*/
@@ -112,7 +132,7 @@ font-size: 14px;}
 
 .lang-list ul{margin-bottom: 0px;}
 
-.lang-list a {
+.lang-list a , .lang-list a:hover {
     color: #1E202B;
     font-size: 14px;
 }
@@ -121,7 +141,6 @@ font-size: 14px;}
 
 .lang-list li:hover{background-color: #EBEBEB;}
 
-.lang-list li:first-child:hover{background-color: #fff;}
 
 .lang-select{
     background: rgba(255, 255, 255, 0.15);
@@ -299,10 +318,8 @@ justify-content: space-around;}
 
 .posts-carousel-inner ,.arabia-carousel-inner {   padding:20px}
 
-.posts-carousel-inner .card,.arabia-carousel-inner .card{width:30%}
 
-.news-carousel .card{width:30%;
-margin:20px 0px}
+.news-carousel .card{margin:20px 0px}
 
 .card img{height:200px}
 
@@ -341,7 +358,8 @@ height:10px;
 border-radius: 50%;
 background-color: #D6D9DE;}
 
-.card{border-radius: 0px;}
+.card{border-radius: 0px;
+width:100%;}
 
 .card-img-top {border-top-left-radius: 0px;
 border-top-right-radius:0px}

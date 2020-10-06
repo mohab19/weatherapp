@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @push('styles')
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <style media="screen">
         .search-result {
             padding: 5px 10px;
@@ -61,8 +63,7 @@ end main -->
             <div class="col-md-9">
                  <div class="sat-map">
                     <h3><i class="fas fa-satellite-dish mx-2"></i>@lang('home.satellite')</h3>
-                    <a href='#' target='sat24'><image src='img/sat.jpg' width=100% height=291></a>
-                    <a href="#" class="maps">More Maps <i class="fas fa-angle-double-right"></i></a>
+                    <iframe width="100%" height="350" src="https://embed.windy.com/embed2.html?lat=24.7136&lon=46.6753&detailLat=24.7136&detailLon=46.6753&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
                 </div>
                 <div class="weather-news">
                     <h3> <i class="fas fa-cloud-sun mx-2"></i>Weather Map</h3>
@@ -71,75 +72,25 @@ end main -->
                     </div>
                 </div>
                 <div class="news-carousel">
-                    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="d-flex np">
-                                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-                                    <span class="fas fa-chevron-left" aria-hidden="true"></span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-                                    <span class="fas fa-chevron-right" aria-hidden="true"></span>
-                                </a>
-                            </div>
-                            <div class="carousel-item active" data-interval="10000">
-                                <div class="news-carousel-inner d-flex">
+                    <div class="weather-news">
+                        <h3><i class="fas fa-cloud-sun mx-2"></i> Weather Models </h3>
+                        <div class="news-box d-flex">
+                            <div class="owl-carousel owl-theme">
+                                @foreach($radars as $key => $radar)
+                                <div class="carousel-item active">
                                     <div class="card">
-                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                        @if($radar->image == null)
+                                        <img src="{{asset('images/weather.png')}}" class="card-img-top" alt="{{$radar->name}}">
+                                        @else
+                                        <img src="{{asset('images/radars'.'/'.$radar->image)}}" class="card-img-top" alt="{{$radar->name}}">
+                                        @endif
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">{{$radar->name}}</h6>
+                                            <a href="{{url(app()->getLocale().'/radar/'.$radar->id)}}" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item" data-interval="2000">
-                                <div class="news-carousel-inner d-flex">
-                                    <div class="card">
-                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -157,7 +108,6 @@ end main -->
                                     <img src="img/pic1.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
                                     </div>
                                 </div>
@@ -167,7 +117,6 @@ end main -->
                                     <img src="img/pic1.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
                                     </div>
                                 </div>
@@ -177,7 +126,6 @@ end main -->
                                     <img src="img/pic1.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
                                     </div>
                                 </div>
@@ -219,66 +167,55 @@ end main -->
 <!--arabia carousel-->
 <div class="arabia-carousel mb-5">
     <div class="container">
-        <div id="carouselExampleInterval2" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            </ol>
-            <div class="carousel-inner">
-                <h3><i class="fas fa-newspaper mx-2"></i>Weather friends articles</h3>
-                <div class="d-flex np">
-                    <a class="carousel-control-prev" href="#carouselExampleInterval2" role="button" data-slide="prev">
-                        <span class="fas fa-chevron-left" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleInterval2" role="button" data-slide="next">
-                        <span class="fas fa-chevron-right" aria-hidden="true"></span>
-                    </a>
-                </div>
-                <div class="carousel-item active" data-interval="10000">
-                    <div class="arabia-carousel-inner d-flex">
-                        @foreach($news as $key => $news)
+        <div class="weather-news">
+            <h3><i class="fas fa-cloud-sun mx-2"></i> Weather With Friends </h3>
+            <div class="news-box d-flex">
+                <div class="owl-carousel owl-theme">
+                    @foreach($news as $key => $new)
+                    <div class="item">
                         <div class="card">
-                            <img src="{{url('/images/news').'/'}}{{$news->image}}" class="card-img-top" alt="...">
-                            <div class="card-body" style="margin: 0px;padding: 10px;">
-                                <h5 class="card-title text-center">{{$news["title_".Lang::locale()]}}</h5>
-                                <p class="card-text">{{substr($news->description, 0, 150)}}...</p>
-                                <a href="{{route('news.show', [app()->getLocale(), $news->id])}}" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="carousel-item" data-interval="2000">
-                    <div class="arabia-carousel-inner d-flex">
-                        <div class="card">
-                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
+                            <img src="{{url('images/news/'.$new->image)}}" class="card-img-top" alt="{{$new['title_'.app()->getLocale()]}}">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
+                                <h5 class="card-title">{{$new['title_'.app()->getLocale()]}}</h5>
+                                <a href="{{url(app()->getLocale().'/news/'.$new->id)}}" class="d-flex align-items-center justify-content-center">
+                                    <span>Details</span> <i class="fas fa-angle-double-right ml-2"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-title"></h5>
+            <div class="card-body">
+
             </div>
         </div>
     </div>
 </div>
 <!--arabia carousel-->
 @endsection
+@push('scripts')
+    <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
+    <script type="text/javascript">
+        $('.owl-carousel').owlCarousel({
+            rtl:true,
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+    </script>
+@endpush
