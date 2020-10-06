@@ -6,6 +6,10 @@ body{font-family: 'Cairo', sans-serif;
    color: #5A5959;}
 
 
+html {
+scroll-behavior: smooth;
+}  
+
 /*header*/
 header{background-color: #111111;
 padding:5px 0px;}
@@ -95,11 +99,18 @@ width:80%;}
 
 nav.small{display: none;}
 
-.logoMyImage{width:25%;}
+.logoMyImage{width:50%;}
 
-.logo-img{width:60%;}
+.logoMyImage p{font-family: 'Cairo', sans-serif;}
 
-.logo-img img{width:35%}
+.logoMyImage p{margin-bottom: 0px;
+    color:#fff;
+    margin:0px 15px;}
+
+.logo-img{width:35%;}
+
+.logo-img img{width:20%}
+
 
 
 /*choose lang*/
@@ -152,10 +163,26 @@ font-size: 14px;}
 
 /*login*/
 .login{font-size: 13px;
-font-weight: 300;
-background-color: rgba(255, 255, 255, 0.15);}
+background-color: rgba(255, 255, 255, 0.15);
+padding:0px 5px;
+color:#fff;
+font-weight: 500;
+position: relative;}
 
-.login a{color:#fff;
+.login-dropdown{position: absolute;
+    top:44px;
+    background-color: #1E202B;
+    width: 67px;
+    left: 0px;
+    padding:4px 0px;
+    display: none;
+    z-index: 9;}
+
+.login-dropdown > a{color:#fff !important}    
+
+.login:hover .login-dropdown{display: block;}    
+
+.login a{color:#1E202B;
 margin:0px 8px;}
 /*radar*/
 
@@ -274,6 +301,10 @@ box-shadow: none;}
 -moz-transition:all .5s ease-in-out;
 cursor: pointer;
 opacity: 1;}
+
+.arabia-carousel{position: relative;
+top:-5px;}
+
 
 .news-carousel-small,.arabia-carousel-small,.posts-carousel-small{display: none;}
 

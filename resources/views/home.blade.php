@@ -66,14 +66,12 @@ end main -->
                     <iframe width="100%" height="350" src="https://embed.windy.com/embed2.html?lat=24.7136&lon=46.6753&detailLat=24.7136&detailLon=46.6753&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
                 </div>
                 <div class="weather-news">
-                    <h3> <i class="fas fa-cloud-sun mx-2"></i>Weather Map</h3>
                     <div class="news-box d-flex">
                         <iframe src="https://www.rainviewer.com/map.html?loc=24.7136,46.6753,5&oFa=0&oC=0&oU=0&oCS=1&oF=0&oAP=0&rmt=4&c=1&o=83&lm=0&th=0&sm=1&sn=1" width="100%" style="height:50vh;" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="news-carousel">
                     <div class="weather-news">
-                        <h3><i class="fas fa-cloud-sun mx-2"></i> Weather Models </h3>
                         <div class="news-box d-flex">
                             <div class="owl-carousel owl-theme">
                                 @foreach($radars as $key => $radar)
@@ -84,7 +82,7 @@ end main -->
                                         @else
                                         <img src="{{asset('images/radars'.'/'.$radar->image)}}" class="card-img-top" alt="{{$radar->name}}">
                                         @endif
-                                        <div class="card-body text-center">
+                                        <div class="card-body text-center" style="padding: 0">
                                             <h6 class="card-title">{{$radar->name}}</h6>
                                             <a href="{{url(app()->getLocale().'/radar/'.$radar->id)}}" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
                                         </div>
@@ -95,80 +93,24 @@ end main -->
                         </div>
                     </div>
                 </div>
-                <div class="news-carousel news-carousel-small">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="card">
-                                    <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="card">
-                                    <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="card" >
-                                    <img src="img/pic1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <a href="#" class="d-flex align-items-center justify-content-center"><span>Details</span> <i class="fas fa-angle-double-right ml-2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="col-md-3">
                 <div class="adv">
-                    <p class="text-muted">advertisement</p>
-                    <div class="story">
-                        <p class="d-flex">
-                            <span>stories</span>
-                            <svg style="width:26px;position:relative;top:-6px;float:right;margin-left:5px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" xml:space="preserve">
-                                <g>
-                                    <path d="M13,3c-5,0-9,4-9,9H1l3.9,3.9L5,16l4-4H6c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7c-1.9,0-3.7-0.8-4.9-2.1l-1.4,1.4,C8.3,20,10.5,21,13,21c5,0,9-4,9-9S18,3,13,3z"></path>
-                                    <polygon points="12,8 12,13 16.3,15.5 17,14.3 13.5,12.2 13.5,8"></polygon>
-                                </g>
-                            </svg>
-                        </p>
-                        <ul class="list-unstyled">
-                            <li><a href="#"><img src="img/pic1.jpg" class=" img-rounded" alt="weather pic"> <p>video nd photo after</p></a></li>
-                            <li><a href="#"><img src="img/pic1.jpg" class=" img-rounded" alt="weather pic"> <p>video nd photo after</p></a></li>
-                            <li><a href="#"><img src="img/pic1.jpg" class=" img-rounded" alt="weather pic"> <p>video nd photo after</p></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="map">
-                    <p>weather map</p>
-                    <iframe width="100%" height="250" src="https://embed.windy.com/embed2.html?lat=24.7136&lon=46.6753&detailLat=24.7136&detailLon=46.6753&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
-                </div>
+                    <p class="text-muted">@lang('main.more_maps')</p>
+                   <iframe src="https://www.ventusky.com/" frameborder="0" width="250" height="400"></iframe>
             </div>
         </div>
     </div>
 </div>
 <!--stalite map-->
 
+@if($news)
 <!--arabia carousel-->
-<div class="arabia-carousel mb-5">
+<div class="arabia-carousel mt-5 mb-5" id="followers">
     <div class="container">
         <div class="weather-news">
-            <h3><i class="fas fa-cloud-sun mx-2"></i> Weather With Friends </h3>
+            <h3><i class="fas fa-cloud-sun mx-2"></i>@lang('main.news_with_friends')</h3>
             <div class="news-box d-flex">
                 <div class="owl-carousel owl-theme">
                     @foreach($news as $key => $new)
@@ -187,15 +129,10 @@ end main -->
                 </div>
             </div>
         </div>
-        <div class="card">
-            <h5 class="card-title"></h5>
-            <div class="card-body">
-
-            </div>
-        </div>
     </div>
 </div>
 <!--arabia carousel-->
+@endif
 @endsection
 @push('scripts')
     <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>

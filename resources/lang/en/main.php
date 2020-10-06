@@ -8,6 +8,8 @@ return [
     'message_sent_title' => 'Messages-Sent',
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
+    'news_with_friends' => 'News with Friends',
+    'more_maps' => 'More Maps',
     'api_users' => 'API Projects',
     'name' => 'Name',
     'website' => 'Website',

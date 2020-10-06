@@ -31,9 +31,20 @@
                     </div>
                 </div>
             </div>
-            <span class="login d-flex align-items-center">
+
+            <span class="@if(!auth()->user()) login @endif d-flex align-items-center">
                 @if(auth()->user())
-                <span>{{auth()->user()->name}}</span>
+                <div class="lang-dropdown">
+                    <div class="lang-select">
+                        <span>{{auth()->user()->name}}</span>&nbsp;
+                        <span><i class="fas fa-caret-down"></i></span>
+                    </div>
+                    <div class="lang-list">
+                        <ul class="list-unstyled">
+                            <li><a href="{{url(app()->getLocale().'/logout')}}" class="d-flex" style="justify-content: space-between;"><span>@lang('main.logout')</span></a></li>
+                        </ul>
+                    </div>
+                </div>
                 @else
                 <a href="{{route('login', app()->getLocale())}}"><i class="fas fa-user"></i><b class="@if(app()->getLocale() == 'ar') mr-2 @else ml-2 @endif"> @lang('home.login') </b></a>
                 @endif
@@ -73,7 +84,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sat.html">@lang('home.your_news')</a>
+                    <a class="nav-link" href="#followers">@lang('home.your_news')</a>
                 </li>
             </ul>
         </div>
@@ -110,7 +121,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sat.html">@lang('home.your_news')</a>
+                    <a class="nav-link" href="#followers">@lang('home.your_news')</a>
                 </li>
             </ul>
         </div>
