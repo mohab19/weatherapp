@@ -35,10 +35,15 @@ class RadarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store($lang, RadarRequest $request) {
-        $imageName = time().'_'.$request->input('writer').'.'.$request->file('image')->getClientOriginalExtension();
-        request()->image->move(public_path('images/radars'), $imageName);
+        if($request->image) {
+            $imageName = time().'_'.$request->input('writer').'.'.$request->file('image')->getClientOriginalExtension();
+            request()->image->move(public_path('images/radars'), $imageName);
+        } else {
+            $imageName = null;
+        }
 
         $radar = Radar::create([
+            'title'               => $request->title,
             'name'                => $request->name,
             'basc_url'            => $request->basc_url,
             'url_call'            => $request->url_call,
@@ -87,6 +92,7 @@ class RadarController extends Controller
         }
 
         $radar->update([
+            'title'               => $request->title,
             'name'                => $request->name,
             'basc_url'            => $request->basc_url,
             'url_call'            => $request->url_call,

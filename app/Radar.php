@@ -9,7 +9,7 @@ class Radar extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'basic_url', 'url_call', 'time_format', 'sprint_digits', 'time_interval', 'time_limits', 'image'];
+    protected $fillable = ['title', 'name', 'basic_url', 'url_call', 'time_format', 'sprint_digits', 'time_interval', 'time_limits', 'image'];
 
     public function Types()
     {

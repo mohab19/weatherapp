@@ -24,8 +24,11 @@ class RadarRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required|string|max:255',
-            'url_call' => 'required|string|max:255',
+            'title'         => 'required|string|max:255',
+            'name'          => 'required|string|max:255',
+            'time_limits'   => 'required|numeric',
+            'time_interval' => 'required|numeric',
+            'url_call'      => 'required|string|max:255',
         ];
     }
 }

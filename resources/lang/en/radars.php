@@ -4,6 +4,7 @@ return [
     'radars'             => 'Radars',
     'add_new'            => 'Add New Category',
     'edit'               => 'Edit Category',
+    'title'              => 'Title',
     'name'               => 'Name',
     'url_call'           => 'URL Call',
     'time_format'        => 'Time Format',

@@ -55,6 +55,10 @@
                                 <input type="hidden" id="form_name" value="Radar" data-id="radars">
                                 <input type="hidden" id="route" value="{{route('radars.store', app()->getLocale())}}">
                                 <div class="form-group">
+                                    <label for="title" class="col-form-label">@lang('radars.title')</label>
+                                    <input type="text" name="title" class="form-control" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="name" class="col-form-label">@lang('radars.name')</label>
                                     <input type="text" name="name" class="form-control" required>
                                 </div>

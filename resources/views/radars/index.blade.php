@@ -68,10 +68,10 @@
                                         @foreach($radars as $key => $radar)
                                             <tr class="delete_{{$radar->id}}">
                                                 <td>{{$radar->id}}</td>
-                                                <td>{{$radar['name']}}</td>
-                                                <td>{{$radar['url_call']}}</td>
-                                                <td>{{$radar['time_format']}}</td>
-                                                <td>{{$radar['time_interval']}}</td>
+                                                <td>{{$radar->title}}</td>
+                                                <td>{{$radar->url_call}}</td>
+                                                <td>{{$radar->time_format}}</td>
+                                                <td>{{$radar->time_interval}}</td>
                                                 <td class="@if(Lang::locale() == 'ar') text-left @else text-right @endif">
                                                     <a class="btn btn-primary" href="{{URL( app()->getLocale() . '/admin/radars/' . $radar->id)}}" style="padding: 5px 10px;">
                                                         <i class="fas fa-eye"></i>

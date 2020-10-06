@@ -28,12 +28,17 @@
                             $trans      = array(
                                 "{date('Y/m/d/')}" => date("Y/m/d/"),
                                 "{date('Ymd')}"    => date("Ymd"),
+                                "{date('Ym')}"    => date("Ym"),
                                 "{-date('Ymd')}"   => date("Ymd", strtotime('-1 day')),
                                 "{+1}"             => ($key+1)*1,
                                 "{+6}"             => sprintf('%02d', ($key+1)*6),
                             );
                             @endphp
-                            <option value="{{strtr($type->basic_url, $trans)}}">{{$type['name_'.Lang::Locale()]}}</option>
+                            @if(app()->getLocale() == 'ar')
+                            <option value="{{strtr($type->basic_url, $trans)}}">{{$type['name_ar']}}</option>
+                            @else
+                            <option value="{{strtr($type->basic_url, $trans)}}">{{$type['name_en']}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
@@ -49,13 +54,18 @@
                                 $trans      = array(
                                     "{date('Y/m/d/')}" => date("Y/m/d/"),
                                     "{date('Ymd')}"    => date("Ymd"),
+                                    "{date('Ym')}"    => date("Ym"),
                                     "{-date('Ymd')}"   => date("Ymd", strtotime('-1 day')),
                                     "{+1}"             => ($i+1)*1,
                                     "{+6}"             => sprintf('%02d', ($i+1)*6),
                                 );
                                 @endphp
                                 @if($i*$radar->time_interval >= $radar->start_from)
-                                <option value="{{sprintf($radar->sprint_digits, ($i*($radar->time_interval)))}}{{strtr($radar->url_call, $trans)}}">+{{$i*$radar->time_interval}} @lang('radars.hours')</option>
+                                    @if($radar->sprint_digits != null)
+                                    <option value="{{sprintf($radar->sprint_digits, ($i*($radar->time_interval)))}}{{strtr($radar->url_call, $trans)}}">+{{$i*$radar->time_interval}} @lang('radars.hours')</option>
+                                    @else
+                                    <option value="{{($i*($radar->time_interval))}}{{strtr($radar->url_call, $trans)}}">+{{$i*$radar->time_interval}} @lang('radars.hours')</option>
+                                    @endif
                                 @endif
                                 @endfor
                             </select>
@@ -72,11 +82,13 @@
                     <img id="img" src="" alt="map">
                 </div>
                 <div class="map-cities">
-                    <img id="city_map" src="{{asset('img/forcasting/overlayermap.png')}}" alt="map" class="hide">
+                    <img id="city_map" src="{{asset('images/cities/'.$radar->name.'.png')}}" alt="map" class="hide">
                 </div>
                 <!--button hide cities-->
-                <button style="height:25;width:40%" id="hide_city_map" type="button">@lang('radars.hide_cities')</button>
-                <button style="height:25;width:40%;display: none;" id="show_city_map" type="button">@lang('radars.show_cities')</button>
+                <div class="mt-3">
+                    <button style="height:25;width:40%" id="hide_city_map" type="button">@lang('radars.hide_cities')</button>
+                    <button style="height:25;width:40%;display: none;" id="show_city_map" type="button">@lang('radars.show_cities')</button>
+                </div>
             </section>
         </div>
     </div>
