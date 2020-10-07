@@ -27,12 +27,14 @@ $(document).ready(function () {
 
     $('#animate').on('click', function() {
         var count = $('#hours option').length;
-        for (var i = 0; i < count; i++) {
-            setTimeout(function() {
-                $("#hours option:selected").removeAttr('selected').next().attr('selected', 'selected');
-                $("#hours").trigger("change");
-            }, 1000);
-        }
+            for (var i = 1; i <= count; i++) {
+                (function(i) {
+                    var timeToClick = 700 * i;
+                    setTimeout(function() {
+                        $('#up').click();
+                    }, timeToClick);
+                })(i)
+            }
     });
 
     $('#hide_city_map').on('click', function() {

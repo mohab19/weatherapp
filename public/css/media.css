@@ -39,6 +39,23 @@ header .container{max-width:100%}
 .satellite ul{width: 100%;}
 
 .sat-map .my-2{display: none;}
+
+.logoMyImage {
+    width: 60%;
+}
+
+.logo-img img {
+    width: 24%;
+}
+
+.logo-img {
+    width: 58%;
+}
+
+.logoMyImage p {font-size: 12px;}
+
+
+
 }
 @media(min-width:768px) and (max-width:991px) /*small*/
 {
@@ -66,6 +83,21 @@ nav ul{width:100%;}
 
 
 header .container{max-width:100%}
+
+
+.logoMyImage {
+    width: 60%;
+}
+
+.logo-img img {
+    width: 14%;
+}
+
+.logo-img {
+    width: 48%;
+}
+
+.logoMyImage p {font-size: 12px;}
 }
 
 

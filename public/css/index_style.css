@@ -8,7 +8,7 @@ body{font-family: 'Cairo', sans-serif;
 
 html {
 scroll-behavior: smooth;
-}  
+}
 
 /*header*/
 header{background-color: #111111;
@@ -92,7 +92,10 @@ a:hover{text-decoration: none;}
     font-weight: bold;}
 
 .navbar .nav-item .nav-link {color: #464646 !important;}
-
+.some-class {
+    width: 100%;
+    height: 400px;
+}
 nav ul{display: flex;
 justify-content: space-between;
 width:80%;}
@@ -107,7 +110,7 @@ nav.small{display: none;}
     color:#fff;
     margin:0px 15px;}
 
-.logo-img{width:35%;}
+.logo-img{width:40%; justify-content: space-between;}
 
 .logo-img img{width:20%}
 
@@ -178,11 +181,11 @@ position: relative;}
     display: none;
     z-index: 9;}
 
-.login-dropdown > a{color:#fff !important}    
+.login-dropdown > a{color:#fff !important}
 
-.login:hover .login-dropdown{display: block;}    
+.login:hover .login-dropdown{display: block;}
 
-.login a{color:#1E202B;
+.login a{color:#fff;
 margin:0px 8px;}
 /*radar*/
 

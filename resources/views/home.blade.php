@@ -98,7 +98,7 @@ end main -->
             <div class="col-md-3">
                 <div class="adv">
                     <p class="text-muted">@lang('main.more_maps')</p>
-                   <iframe src="https://www.ventusky.com/" frameborder="0" width="250" height="400"></iframe>
+                   <iframe class="some-class" src="https://www.ventusky.com/" frameborder="0"></iframe>
             </div>
         </div>
     </div>

@@ -9,20 +9,14 @@
         <div class="sat-map text-center">
             <h2>@lang('radars.forecasting') {{$radar->name}}</h2>
             <!--next & prev button-->
-            <div class="">
-                <div id="loading" style="visibility: hidden;">
-                    <div id="loading_1" class="loading"></div>
-                </div>
-                <div class="buttons-toward d-flex">
-                    <button type="button" id="still">@lang('radars.still')</button>
-
-                    <button type="button" id="animate">@lang('radars.animated')</button>
-                </div>
-                <div id="s" style="display: none;"></div>
-                <div id="all">
+            <div class="mb-3">
+                <div class="container">
+                    <div class="buttons-toward d-flex row">
+                        <button type="button" class="col-xs-12 btn-block" id="animate">@lang('radars.animated')</button>
+                    </div>
                     @if($radar->Types)
-                    <div>
-                        <select class="form-control" style="width:100%;height:29.6;direction:rtl;" id="script">
+                    <div class="row">
+                        <select class="form-control col-xs-12" style="width:100%;height:29.6;direction:rtl;" id="script">
                             @foreach($radar->Types as $key => $type)
                             @php
                             $trans      = array(
@@ -43,12 +37,12 @@
                         </select>
                     </div>
                     @endif
-                    <div class="buttons-toward d-flex">
-                        <div>
-                            <button type="button" id="down">@lang('radars.previous')</button>
+                    <div class="buttons-toward row">
+                        <div class="col-md-4 col-xs-12">
+                            <button type="button" class="btn-block" id="down">@lang('radars.previous')</button>
                         </div>
-                        <div>
-                            <select class="form-control" id="hours">
+                        <div class="col-md-4 col-xs-12">
+                            <select class="form-control text-center" id="hours">
                                 @for($i = 1; ($i*$radar->time_interval) <= ($radar->time_limits*24); $i++)
                                 @php
                                 $trans      = array(
@@ -70,8 +64,8 @@
                                 @endfor
                             </select>
                         </div>
-                        <div>
-                            <button type="button" id="up">@lang('radars.next')</button>
+                        <div class="col-md-4 col-xs-12">
+                            <button type="button" class="btn-block" id="up">@lang('radars.next')</button>
                         </div>
                     </div>
                 </div>
