@@ -20,5 +20,6 @@ return [
     'sprint_digits'      => 'عدد الخانات',
     'hide_cities'        => 'اخفاء أسماء المدن',
     'show_cities'        => 'إظهار أسماء المدن',
-
+    'precipitation_forcasting' => 'رادارات البروق',
+    
 ];

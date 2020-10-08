@@ -60,7 +60,7 @@ end main -->
 <div class="satellite">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                  <div class="sat-map">
                     <h3><i class="fas fa-satellite-dish mx-2"></i>@lang('home.satellite')</h3>
                     <iframe width="100%" height="350" src="https://embed.windy.com/embed2.html?lat=24.7136&lon=46.6753&detailLat=24.7136&detailLon=46.6753&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
@@ -93,12 +93,6 @@ end main -->
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="col-md-3">
-                <div class="adv">
-                    <p class="text-muted">@lang('main.more_maps')</p>
-                   <iframe class="some-class" src="https://www.ventusky.com/" frameborder="0"></iframe>
             </div>
         </div>
     </div>
@@ -107,7 +101,7 @@ end main -->
 
 @if($news)
 <!--arabia carousel-->
-<div class="arabia-carousel mt-5 mb-5" id="followers">
+<div class="arabia-carousel" id="followers">
     <div class="container">
         <div class="weather-news">
             <h3><i class="fas fa-cloud-sun mx-2"></i>@lang('main.news_with_friends')</h3>

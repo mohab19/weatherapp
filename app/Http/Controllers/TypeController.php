@@ -91,4 +91,10 @@ class TypeController extends Controller
         $types = Type::where('radar_id', $id)->get();
         return $types;
     }
+
+    public function Precipitation()
+    {
+        $types = Type::where('precipitation', 1)->get();
+        return view('radars.rain_radar', compact('types'));
+    }
 }

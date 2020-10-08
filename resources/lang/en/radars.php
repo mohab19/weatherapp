@@ -20,5 +20,6 @@ return [
     'sprint_digits'      => 'Sprint Digits',
     'hide_cities'        => 'Hide Cities Names',
     'show_cities'        => 'Show Cities Names',
+    'precipitation_forcasting' => 'Precipitation Forcasting',
 
 ];

@@ -61,7 +61,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mt-2 mt-lg-0" style="width: 100%;">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" href="{{url('/').'/'}}@lang('home.lng')"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
+                    <a class="nav-link d-flex align-items-center" href="{{url('/').'/'.app()->getLocale()}}"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
                 </li>
                 <li class="nav-item dropdown dmenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -84,7 +84,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#followers">@lang('home.your_news')</a>
+                    <a class="nav-link" href="{{url(app()->getLocale().'/precipitation')}}">@lang('radars.precipitation_forcasting')</a>
                 </li>
             </ul>
         </div>
@@ -98,7 +98,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mt-2 mt-lg-0" style="width: 100%;">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" href="{{url('/').'/'}}@lang('home.lng')"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
+                    <a class="nav-link d-flex align-items-center" href="{{url('/').'/'.app()->getLocale()}}"><i class="fas fa-home @if(app()->getLocale() == 'ar') ml-2 @else mr-2 @endif"></i> @lang('home.home') </a>
                 </li>
                 <li class="nav-item dropdown dmenu">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -121,7 +121,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#followers">@lang('home.your_news')</a>
+                    <a class="nav-link" href="{{url(app()->getLocale().'/precipitation')}}">@lang('radars.precipitation_forcasting')</a>
                 </li>
             </ul>
         </div>

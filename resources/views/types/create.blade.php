@@ -66,6 +66,12 @@
                                     <label for="basic_url" class="col-form-label">@lang('types.basic_url')</label>
                                     <input type="text" name="basic_url" class="form-control">
                                 </div>
+                                <div class="form-group col-sm-6">
+                                    <div class="custom-control custom-checkbox" style="margin: 45px 15px;">
+                                        <input type="checkbox" class="custom-control-input" name="precipitation" id="precipitation" value="1">
+                                        <label class="custom-control-label" for="precipitation">@lang('types.precipitation')</label>
+                                    </div>
+                                </div>
                                 <div class="col-sm-12 text-center pl-0 mt-3" style="float: right;">
                                     <button type="submit" class="btn btn-space btn-primary col-sm-4">@lang('main.save')</button>
                                     <a href="{{url()->previous()}}"><span class="btn btn-space btn-secondary col-sm-4">@lang('main.cancel')</span></a>

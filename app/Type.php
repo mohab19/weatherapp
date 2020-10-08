@@ -9,7 +9,7 @@ class Type extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['radar_id', 'name_ar', 'name_en', 'basic_url'];
+    protected $fillable = ['radar_id', 'name_ar', 'name_en', 'basic_url', 'precipitation'];
 
     public function Radar()
     {

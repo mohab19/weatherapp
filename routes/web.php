@@ -28,6 +28,7 @@ Route::group(['prefix' => '{language?}'], function () {
     Route::get('/search_city/{city}', 'HomeController@searchCity');
     Route::get('/climate', 'ClimateController@index');
     Route::get('/news', 'NewsController@index');
+    Route::get('/precipitation', 'TypeController@Precipitation');
 
     Route::get('/side', 'HomeController@side');
     Route::get('/radar/{radar}', 'RadarController@radars');
