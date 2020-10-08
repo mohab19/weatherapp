@@ -8,7 +8,7 @@ body{font-family: 'Cairo', sans-serif;
 
 html {
 scroll-behavior: smooth;
-}  
+}
 
 /*header*/
 header{background-color: #111111;
@@ -162,12 +162,14 @@ font-size: 14px;}
 
 
 /*login*/
-.login{font-size: 13px;
-background-color: rgba(255, 255, 255, 0.15);
-padding:0px 5px;
-color:#fff;
-font-weight: 500;
-position: relative;}
+.login {
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding:0px 5px;
+    color:#fff;
+    font-weight: 500;
+    position: relative;
+}
 
 .login-dropdown{position: absolute;
     top:44px;
@@ -178,12 +180,14 @@ position: relative;}
     display: none;
     z-index: 9;}
 
-.login-dropdown > a{color:#fff !important}    
+.login-dropdown > a{color:#fff !important}
 
-.login:hover .login-dropdown{display: block;}    
+.login:hover .login-dropdown{display: block;}
 
-.login a{color:#1E202B;
-margin:0px 8px;}
+.login a {
+    color:#fff;
+    margin:0px 8px;
+}
 /*radar*/
 
 
